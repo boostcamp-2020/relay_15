@@ -3,6 +3,8 @@
 ## 1. 선택한 서비스
 
 * ### 싸이월드
+    
+    ![Cyworld](https://user-images.githubusercontent.com/34153657/89119846-4a2c2980-d4ec-11ea-8eac-bc3f954efdb8.jpg)
 
 ## 2. 사례 및 서비스 소개
 
