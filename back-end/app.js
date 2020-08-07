@@ -24,13 +24,10 @@ app.use(cookieParser());
 app.use('/static', express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter); <<
-<< << < HEAD
-app.use('/movies', signUpRouter); ===
-=== =
+app.use('/users', usersRouter);
+app.use('/movies', signUpRouter);
 app.use('/movies', moviesRouter);
-app.use('/login', loginRouter) >>>
-    >>> > 105 d1bb760c9aaea9e92a8da856bfd179e990fca
+app.use('/login', loginRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
