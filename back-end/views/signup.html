@@ -1,0 +1,53 @@
+<!-- 회원 가입 ( 구글 폼 임베딩 제외 ) 및 로그인 -->
+<!-- 미니 홈피 기능 중 방명록 ( 게시판 제외 )
+일촌 목록 및 일촌 미니 홈피 방명록 이동 ( 일촌 추천 기능 제외 ) -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BOOSTWORLD - Sign Up</title>
+</head>
+<link rel="stylesheet" href="/stylesheets/signup.css" />
+
+<body>
+    <main>
+        <header class="latte-header">
+            <h1>BOOSTWORLD - 회원 가입</h1>
+            <hr />
+        </header>
+
+        <section class="signup-section">
+            <header class="signup-header">
+                <h2>프로필 입력</h2>
+            </header>
+            <hr />
+
+            <section>
+                <form id="signup-form" action="http://localhost:3000/users" method="POST">
+                    <div>
+                        <label for="email">이메일d 아이디</label>
+                        <input id="email" name="email" type="text" />
+                    </div>
+                    <div>
+                        <label for="password">비밀번호</label>
+                        <input id="password" name="password" type="password" />
+                    </div>
+                    <div>
+                        <label for="password-check">비밀번호 확인</label>
+                        <input id="password-check" type="password" />
+                    </div>
+                    <div>
+                        <label for="name">이름</label>
+                        <input id="name" name="name" type="text" />
+                    </div>
+                    <input type="submit" class="signup-button" value="회원가입" />
+                </form>
+            </section>
+        </section>
+
+    </main>
+</body>
+
+</html>

@@ -1,5 +1,4 @@
 const fs = require('fs');
-const filepath = "/static/database/users.json";
 var express = require('express');
 var router = express.Router();
 var users = require('../public/database/users.json');
@@ -10,41 +9,28 @@ router.get('/', function(req, res, next) {
 });
 router.post('/', function(req, res, next) {
     const len = users.data.length;
+    const info = req.body;
     users.data.push({
         no: (len + 1),
-        email: `hello${(len+1)}@naver.com`,
-        password: "abc123",
-        name: `사용자${len+1}`
+        email: `${info.email}`,
+        password: `${info.password}`,
+        name: `${info.name}`
     });
     const stringJson = JSON.stringify(users);
-
     fs.open('./public/database/users.json', 'a', "666", function(err, id) {
-            if (err) {
-                console.log("file open err!!");
-            } else {
-                fs.writeFile(id, '', function() {
-                    fs.write(id, stringJson, null, 'utf8', function(err) {
-                        console.log('file was saved!');
-                    });
+        if (err) {
+            console.log("file open err!!");
+        } else {
+            fs.writeFile('./public/database/users.json', '', function() {
+                console.log('file is cleand!');
+                fs.write(id, stringJson, null, 'utf8', function(err) {
+                    console.log('file was saved!');
                 });
-            }
-
-        })
-        // let dataBuffer = fs.readFileSync(filepath)
-        // let dataJSON = dataBuffer.toString();
-        // let userlist = JSON.parse(dataJSON);
-
-    // const len = users.data.length;
-    // users.data.push({
-    //     no: (len + 1),
-    //     email: `hello${(len+1)}@naver.com`,
-    //     password: "abc123",
-    //     name: `사용자${len}`
-    // });
-    // res.send(stringJson);
-
-
-    // fs.writeFileSync(filepath, listJSON);
+            });
+        }
+    })
+    console.dir(info);
+    res.send({ status: "OK", data: info });
 });
 
 module.exports = router;
