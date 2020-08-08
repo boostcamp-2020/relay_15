@@ -99,3 +99,58 @@ hi
   ```
 
   
+
+
+
+#### /guestbook
+
+- Input : JSON
+
+  ```
+  let data = {
+    to : 'sample1@naver.com',
+    from : '적는사람이름',
+    contents : '안녕하세요 ㅎㅎㅎ'
+  };
+  ```
+
+
+
+- 호출 방식 : GET / POST
+
+  ```
+  // GET - 방명록 목록을 불러옴
+  fetch('/guestbook')
+  .then(function(response) {
+    return response.json()
+  })
+  .then(function(myJson) {
+    return console.log(JSON.stringify(myJson))
+  })
+
+  // POST - 방명록 저장
+  fetch('/call', {
+  	method: 'POST',
+      headers: {
+  		'Content-Type': 'application/json',
+  		'Accept': 'application/json'
+  	},
+  	body: JSON.stringify(data),
+  })
+  .then(function(response) {
+  	return response.json()
+  })
+  .then(function(myJson) {
+  	return console.log(JSON.stringify(myJson))
+  })
+  ```
+
+
+
+- output : JSON
+
+  ```
+  {
+    status: "OK"
+  }
+  ```
