@@ -45,7 +45,7 @@
 
 ### 구현사항
 
-- 기존 서비스 기능 [Frontend](https://d2.naver.com/helloworld/7753273) / [Backend](https://d2.naver.com/helloworld/7753273)
+- 기존 서비스 기능 [Frontend](https://d2.naver.com/helloworld/7753273) / [Backend](https://github.com/wooojini/relay_15/blob/master/back-end/README.md)
 - 방명록 댓글 필터링 기능 [AI(자연어처리)](https://d2.naver.com/helloworld/7753273)
 
 ### 전체 서비스 구조
