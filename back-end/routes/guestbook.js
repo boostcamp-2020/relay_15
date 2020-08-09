@@ -39,7 +39,7 @@ router.post('/', function(req, res, next) {
         }
     });
 
-    res.send({ status: "OK" });
+    res.status(200).send({ message : 'success' });
 })
 
 module.exports = router;

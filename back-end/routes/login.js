@@ -13,9 +13,9 @@ router.post('/', function(req, res) {
     }
 
     if (i === len) {
-        res.send({loginStatus : 'failed'})
+        res.status(404).json({ message : 'failed' })
     } else {
-        res.send({loginStatus : 'successed', name : userData[i].name})
+        res.status(200).json({ message : 'success', email : userData[i].email, name : userData[i].name })
     }
 });
 
