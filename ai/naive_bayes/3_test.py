@@ -67,6 +67,3 @@ while s1!="end":
 # str6="귀요미귀요미 교미교미 찡긋~!"
 # print("입력문장: "+str6)
 # print(classifier1.predict([string_to_list(str6)]))
-# str7="사볼 그만 좀 해라 인균아 적당히 해야지 ㅂㅅ쉑ㅋㅋ~!"
-# print("입력문장: "+str7)
-# print(classifier1.predict([string_to_list(str7)]))
