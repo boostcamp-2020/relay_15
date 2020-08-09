@@ -28,7 +28,7 @@ function SignUp() {
       }
       try {
         const reponse = await apiFetch({
-          url: '/signup',
+          url: '/users',
           method: 'POST',
           body: {
             email,
@@ -39,7 +39,7 @@ function SignUp() {
 
         history.push('/');
       } catch (e) {
-        console.errror(e.message);
+        console.error(e.message);
         alert('예기치 못 한 에러가 발생했습니다.');
       }
     },
