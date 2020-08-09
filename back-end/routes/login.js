@@ -1,9 +1,14 @@
 var express = require('express');
 var router = express.Router();
-var userInfo = require('../public/database/users.json');
+//var userInfo = require('../public/database/users.json');
 
 router.post('/', function(req, res) {
-    const userData = userInfo.data
+    const fs = require('fs');
+    const dataBuffer = fs.readFileSync('./public/database/users.json')
+    const dataJson = dataBuffer.toString()
+    const list = JSON.parse(dataJson)
+
+    const userData = list.data
     const len = userData.length
 
     console.log(req.body)
@@ -13,6 +18,9 @@ router.post('/', function(req, res) {
             break
         }   
     }
+    console.log('userData >>>>>>>>>')
+    console.log(userData[i].email)
+    console.log(userData[i].name)
 
     if (i === len) {
         res.status(404).json({ message : 'failed' })

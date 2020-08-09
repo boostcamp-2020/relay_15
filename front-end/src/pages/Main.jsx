@@ -19,7 +19,6 @@ function Main({ match }) {
       const response = await apiFetch({
         url: `/guestbook/${match.params.email}`,
       });
-
       dispatch({
         type: 'GET_MAIN_INFO',
         value: response,

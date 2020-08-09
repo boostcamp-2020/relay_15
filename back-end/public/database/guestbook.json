@@ -6,12 +6,6 @@
             "data": [
                 {
                     "no": 1,
-                    "from": "적은사람이메일1",
-                    "contents": "안녕하세요 ㅎㅎㅎ",
-                    "isBad": 0
-                },
-                {
-                    "no": 2,
                     "from": "sample1@naver.com",
                     "contents": "안녕하세요",
                     "isBad": 0
@@ -23,19 +17,19 @@
             "data": [
                 {
                     "no": 1,
-                    "from": "적은사람이름1",
+                    "from": "적은사람이메일1",
                     "contents": "반갑습니다 ㅎㅎㅎ",
                     "isBad": 0
                 },
                 {
                     "no": 2,
-                    "from": "적은사람이름2",
+                    "from": "적은사람이메일2",
                     "contents": "반갑습니다 ㅋㅋㅋ",
                     "isBad": 0
                 },
                 {
                     "no": 3,
-                    "from": "적은사람이름3",
+                    "from": "적은사람이메일3",
                     "contents": "반갑습니다",
                     "isBad": 0
                 }

@@ -1,1 +1,49 @@
-{"title":"userlist","data":[{"no":1,"email":"sample1@naver.com","password":"abc","name":"김성훈","friends":["contanct@naver.com","theling@naver.com","hello@naver.com"]},{"no":2,"email":"contact@naver.com","password":"contact","name":"드니 빌뇌브","friends":["contanct@naver.com","theling@naver.com","hello@naver.com"]},{"no":3,"email":"theking@naver.com","password":"theking","name":"한재림","friends":["contanct@naver.com","theling@naver.com","hello@naver.com"]},{"no":4,"email":"hello4@naver.com","password":"abc123","name":"사용자4","friends":["contanct@naver.com","theling@naver.com","hello@naver.com"]},{"no":5,"email":"hello5@naver.com","password":"abc123","name":"사용자5","friends":["contanct@naver.com","theling@naver.com","hello@naver.com"]},{"no":6,"email":"hello6@naver.com","password":"abc123","name":"사용자6","friends":["contanct@naver.com","theling@naver.com","hello@naver.com"]},{"no":7,"email":"hello7@naver.com","password":"abc123","name":"사용자7","friends":["contanct@naver.com","theling@naver.com","hello@naver.com"]},{"no":8,"email":"postman@post.com","password":"post","name":"포스트맨","friends":["contanct@naver.com","theling@naver.com","hello@naver.com"]},{"no":9,"email":"postman@post.com","password":"post","name":"포스트맨","friends":["contanct@naver.com","theling@naver.com","hello@naver.com"]},{"no":10,"email":"postman@post.com","password":"post","name":"포스트맨","friends":["contanct@naver.com","theling@naver.com","hello@naver.com"]},{"no":11,"email":"aaa","password":"aaa","name":"aaa","friends":["contanct@naver.com","theling@naver.com","hello@naver.com"]},{"no":12,"email":"ccc","password":"ccc","name":"ccc","friends":["contanct@naver.com","theling@naver.com","hello@naver.com"]},{"no":13,"email":"tt@naver.com","password":"1234","name":"tester"}]}
+{
+    "title": "userlist",
+    "data": [
+        {
+            "no": 1,
+            "email": "sample1@naver.com",
+            "password": "abc",
+            "name": "김성훈",
+            "friends": [
+                "contanct@naver.com",
+                "theling@naver.com",
+                "hello@naver.com"
+            ]
+        },
+        {
+            "no": 2,
+            "email": "contact@naver.com",
+            "password": "contact",
+            "name": "드니 빌뇌브",
+            "friends": [
+                "sample1@naver.com",
+                "theling@naver.com",
+                "hello@naver.com"
+            ]
+        },
+        {
+            "no": 3,
+            "email": "theking@naver.com",
+            "password": "theking",
+            "name": "한재림",
+            "friends": [
+                "contanct@naver.com",
+                "sample1@naver.com",
+                "hello@naver.com"
+            ]
+        },
+        {
+            "no": 4,
+            "email": "hello@naver.com",
+            "password": "abc123",
+            "name": "사용자4",
+            "friends": [
+                "contanct@naver.com",
+                "theling@naver.com",
+                "sample1@naver.com"
+            ]
+        }
+    ]
+}

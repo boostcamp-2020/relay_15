@@ -36,7 +36,7 @@ function memberReducer(state, action) {
         ...state,
         mainInfo: {
           ...state.mainInfo,
-          guestBooks: action.value,
+          guestbooks: action.value,
         },
       };
     }
