@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+    <h1>
+        <%= title %>
+    </h1>
+    <% data.forEach(function(val){ %>
+        <div>
+            <%= val.email %>
+        </div>
+        <div>
+            <%= val.name %>
+        </div>
+        <% }) %>
+</body>
+
+</html>

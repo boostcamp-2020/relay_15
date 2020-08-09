@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src='/javascripts/test.js' ></script>
   </head>
   <body>
-    <input id='id' type="textbox">
-    <input id='pw' type="password">
-    <button onclick="sendInfo(document.getElementById('id').value,document.getElementById('pw').value)">send</button>
+    <input id='email' type="textbox">
+    <input id='password' type="password">
+    <button onclick="sendInfo(document.getElementById('email').value,document.getElementById('password').value)">send</button>
+    <br>
+    <input id='text' type='textbox'>
+    <button onclick="callAiApi(document.getElementById('text').value)">test</button>
+    <br>
+    <input id='text2' type='textbox'>
+    <button onclick="getGuestbook()">guestbook</button>
+    <button onclick="addGuestbook()">addGuestbook</button>
   </body>
 </html>
