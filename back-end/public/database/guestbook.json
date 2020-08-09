@@ -6,18 +6,21 @@
             "data": [
                 {
                     "no": 1,
-                    "from": "적은사람이름1",
-                    "contents": "안녕하세요 ㅎㅎㅎ"
+                    "from": "적은사람이메일1",
+                    "contents": "안녕하세요 ㅎㅎㅎ",
+                    "isBad": 0
                 },
                 {
                     "no": 2,
                     "from": "적은사람이름2",
-                    "contents": "안녕하세요 ㅋㅋㅋ"
+                    "contents": "안녕하세요 ㅋㅋㅋ",
+                    "isBad": 0
                 },
                 {
                     "no": 3,
                     "from": "456",
-                    "contents": "789"
+                    "contents": "789",
+                    "isBad": 0
                 }
             ]
         },
@@ -27,17 +30,20 @@
                 {
                     "no": 1,
                     "from": "적은사람이름1",
-                    "contents": "반갑습니다 ㅎㅎㅎ"
+                    "contents": "반갑습니다 ㅎㅎㅎ",
+                    "isBad": 0
                 },
                 {
                     "no": 2,
                     "from": "적은사람이름2",
-                    "contents": "반갑습니다 ㅋㅋㅋ"
+                    "contents": "반갑습니다 ㅋㅋㅋ",
+                    "isBad": 0
                 },
                 {
                     "no": 3,
                     "from": "적은사람이름3",
-                    "contents": "반갑습니다"
+                    "contents": "반갑습니다",
+                    "isBad": 0
                 }
             ]
         }

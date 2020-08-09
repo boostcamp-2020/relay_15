@@ -33,6 +33,7 @@ router.get('/:email', function(req, res, next) {
 
 router.post('/', function(req, res, next) {
     let len = guestbooks.data.length;
+
     for (var i = 0; i < len; i++) {
         if (guestbooks.data[i].to === req.body.to) {
             break;
@@ -41,28 +42,47 @@ router.post('/', function(req, res, next) {
 
     const guestlen = guestbooks.data[i].data.length;
 
-    guestbooks.data[i].data.push({
-        no : (guestlen + 1),
-        from : `${req.body.from}`,
-        contents : `${req.body.contents}`
-    });
+    getData({checktext:req.body.contents}).then(function(rsltData){
+        guestbooks.data[i].data.push({
+            no : (guestlen + 1),
+            from : `${req.body.from}`,
+            contents : `${req.body.contents}`,
+            isBad : rsltData.Result
+        });
 
-    const stringJson = JSON.stringify(guestbooks);
+        const stringJson = JSON.stringify(guestbooks);
 
-    fs.open('./public/database/guestbook.json', 'a', "666", function(err, id) {
-        if (err) {
-            console.log("file open err!!");
-        } else {
-            fs.writeFile('./public/database/guestbook.json', '', function() {
-                console.log('file is cleand!');
-                fs.write(id, stringJson, null, 'utf8', function(err) {
-                    console.log('file was saved!');
+        fs.open('./public/database/guestbook.json', 'a', "666", function(err, id) {
+            if (err) {
+                console.log("file open err!!");
+            } else {
+                fs.writeFile('./public/database/guestbook.json', '', function() {
+                    console.log('file is cleand!');
+                    fs.write(id, stringJson, null, 'utf8', function(err) {
+                        console.log('file was saved!');
+                    });
                 });
-            });
-        }
-    });
+            }
+        });
 
-    res.status(200).send({ message : 'success' });
+        res.send(guestbooks.data[i].data)
+    })
 })
+
+function getData (data) {
+    return new Promise(function(resolve){
+        const fetch = require('node-fetch');
+        fetch('http://15.164.227.86:8000/predict/', {
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            method: "POST",
+            body: JSON.stringify(data)
+        })
+        .then(res => res.json())
+        .then(json => resolve(json));
+    })
+}
 
 module.exports = router;
