@@ -7,7 +7,7 @@ export async function apiFetch({ url, method = 'GET', body }) {
       Accept: 'application/json',
     },
     method,
-    body : body&&JSON.stringify(body),
+    body: body && JSON.stringify(body),
   });
 
   return await response.json();

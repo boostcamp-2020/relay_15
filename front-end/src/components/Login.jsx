@@ -4,12 +4,15 @@ import { useHistory, Link } from 'react-router-dom';
 import { LoginBox } from './style/Login.style';
 import { apiFetch } from '../apis';
 import { useMemberDispatch } from '../contexts/MemberContext';
+import { useLogoutCheck } from '../hooks';
 
 function Login() {
   const [email, onEmailChange] = useInput('');
   const [password, onPasswordChange] = useInput('');
   const history = useHistory();
   const dispatch = useMemberDispatch();
+
+  useLogoutCheck();
 
   const onSubmit = useCallback(
     async (e) => {
@@ -21,20 +24,26 @@ function Login() {
           body: { email, password },
         });
 
+        if (response.message === 'failed') {
+          alert('아이디나 비밀번호가 틀렸습니다.');
+          return;
+        }
+
         dispatch({
           type: 'LOGIN',
           value: {
-            email,
+            email: response.email,
             name: response.name,
+            friends: response.friends,
           },
         });
 
-        history.push('/main');
+        history.push(`/main/${email}`);
       } catch (e) {
         console.error(e);
       }
     },
-    [email, password]
+    [email, password, dispatch, history]
   );
 
   return (
@@ -44,8 +53,7 @@ function Login() {
         <form onSubmit={onSubmit} name="login" className="login">
           <div>
             <input
-              type="text"
-              value=""
+              type="email"
               id="email"
               value={email}
               onChange={onEmailChange}
@@ -55,7 +63,6 @@ function Login() {
           <div>
             <input
               type="password"
-              value=""
               id="password"
               value={password}
               onChange={onPasswordChange}

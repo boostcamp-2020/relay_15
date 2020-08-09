@@ -1,9 +1,11 @@
 import React, { useCallback } from 'react';
 import { MyPageStyle } from './style/MyPage.style';
-import { useInput } from '../hooks';
+import { useInput, useLoginCheck } from '../hooks';
 import { useHistory } from 'react-router-dom';
 import BoostHeader from './BoostHeader';
 import { apiFetch } from '../apis';
+
+// 회원 정보 수정은 미구현
 
 function MyPage() {
   const [name, onChangeName] = useInput('');
@@ -11,15 +13,20 @@ function MyPage() {
   const [passwordCheck, onChangePasswordCheck] = useInput('');
   const history = useHistory();
 
-  const onSubmit = useCallback(async (e) => {
-    e.preventDefault();
-    const response = await apiFetch({
-      method: 'PUT',
-      url: '/myinfo',
-      body: { name, password },
-    });
-    history.push('/main');
-  }, []);
+  useLoginCheck();
+
+  const onSubmit = useCallback(
+    async (e) => {
+      e.preventDefault();
+      const response = await apiFetch({
+        method: 'PUT',
+        url: '/myinfo',
+        body: { name, password },
+      });
+      history.push('/main');
+    },
+    [name, password, history]
+  );
 
   const onWithdrawal = useCallback(async (e) => {
     e.preventDefault();

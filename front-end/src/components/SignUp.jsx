@@ -1,7 +1,6 @@
 import React, { useEffect, useCallback, useState } from 'react';
 import { useInput } from '../hooks';
 import { useHistory } from 'react-router-dom';
-import { useMemberDispatch } from '../contexts/MemberContext';
 import { apiFetch } from '../apis';
 import { SignUpStyle } from './style/SignUp.style';
 
@@ -13,7 +12,6 @@ function SignUp() {
   const [isCorrectPassword, setIsCorrectPassword] = useState(false);
 
   const history = useHistory();
-  const dispatch = useMemberDispatch();
 
   const onSubmit = useCallback(
     async (e) => {
@@ -27,8 +25,8 @@ function SignUp() {
         return;
       }
       try {
-        const reponse = await apiFetch({
-          url: '/signup',
+        await apiFetch({
+          url: '/users',
           method: 'POST',
           body: {
             email,
@@ -39,11 +37,11 @@ function SignUp() {
 
         history.push('/');
       } catch (e) {
-        console.errror(e.message);
+        console.error(e.message);
         alert('예기치 못 한 에러가 발생했습니다.');
       }
     },
-    [email, password, passwordCheck, name]
+    [email, password, name, isCorrectPassword, history]
   );
 
   useEffect(() => {
@@ -72,7 +70,7 @@ function SignUp() {
                 <label htmlFor="email">이메일 아이디</label>
                 <input
                   id="email"
-                  type="text"
+                  type="email"
                   value={email}
                   onChange={onChangeEmail}
                 />
@@ -109,8 +107,8 @@ function SignUp() {
                   onChange={onChangeName}
                 />
               </div>
-              <button className="signup-button">
-                <a>회원가입</a>
+              <button type="submit" className="signup-button">
+                회원가입
               </button>
             </form>
           </section>

@@ -34,7 +34,7 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/" component={Login} />
-          <Route exact path="/main" component={Main} />
+          <Route path="/main/:email" render={(props) => <Main {...props} />} />
           <Route path="/signup" component={SignUp} />
           <Route path="/mypage" component={MyPage} />
         </Switch>
