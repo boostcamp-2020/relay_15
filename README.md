@@ -60,16 +60,30 @@
 
 ![Img](https://github.com/wooojini/relay_15/blob/master/img/filtering_.jpeg?raw=true)
 
-### 실행화면
+### 구현화면
 
 - 메인페이지
-  ![Img](https://github.com/wooojini/relay_15/blob/master/img/filtering_.jpeg?raw=true)
+  ![Img](https://github.com/wooojini/relay_15/blob/master/img/main_page.PNG?raw=true)
 
 - 마이페이지
-  ![Img](https://github.com/wooojini/relay_15/blob/master/img/filtering_.jpeg?raw=true)
+  ![Img](https://github.com/wooojini/relay_15/blob/master/img/mypage_1.PNG?raw=true)
+  ![Img](https://github.com/wooojini/relay_15/blob/master/img/mypage_3.PNG?raw=true)
+  
+  - 방명록 작성
+  ![Img](https://github.com/wooojini/relay_15/blob/master/img/mypage_4.PNG?raw=true)
+  ![Img](https://github.com/wooojini/relay_15/blob/master/img/mypage_5.PNG?raw=true)
+  ![Img](https://github.com/wooojini/relay_15/blob/master/img/mypage_6.PNG?raw=true)
+  
+  - 필터링 과정
+  ![Img](https://github.com/wooojini/relay_15/blob/master/img/mypage_7.PNG?raw=true)
+  ![Img](https://github.com/wooojini/relay_15/blob/master/img/mypage_3.PNG?raw=true)
+  
+  - 로그아웃
+  ![Img](https://github.com/wooojini/relay_15/blob/master/img/mypage_logout.PNG?raw=true)
 
-- 회원가입
-  ![Img](https://github.com/wooojini/relay_15/blob/master/img/filtering_.jpeg?raw=true)
+- 회원가입 페이지
+  ![Img](https://github.com/wooojini/relay_15/blob/master/img/signup_page.PNG?raw=true)
+  ![Img](https://github.com/wooojini/relay_15/blob/master/img/signup_page_2.PNG?raw=true)
 
 * 참여자 리스트
 
