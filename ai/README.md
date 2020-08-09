@@ -166,6 +166,8 @@ http://w3devlabs.net/wp/?p=17273
 
 - 서버로 부터 입력된 문자열을 모델이 판단해 이진 분류 후 0과 1의 값을 리턴함
 
+- [Django 관련 문서](djangoREADME.md)
+
   
 
 ## 결과
