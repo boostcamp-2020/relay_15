@@ -22,7 +22,7 @@ function sendInfo (email, password) {
 
 function callAiApi (text) {
     let data = {
-        Checktext: text
+        checktext: text
     };
 
     fetch('/call', {
