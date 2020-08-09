@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
@@ -42,6 +43,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_swagger',
     'predict.apps.PredictConfig',
+    'bertpredict.apps.BertpredictConfig',
+    'predict2.apps.Predict2Config',
 ]
 
 MIDDLEWARE = [
@@ -123,3 +126,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))

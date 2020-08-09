@@ -17,6 +17,8 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework_swagger.views import get_swagger_view
 import predict.urls
+import bertpredict.urls
+import predict2.urls
 
 schema_view = get_swagger_view(title="API 문서")
 
@@ -24,4 +26,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('docs/', schema_view),
     path('', include(predict.urls)),
+    path('', include(bertpredict.urls)),
+    path('', include(predict2.urls)),
 ]

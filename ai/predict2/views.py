@@ -1,25 +1,22 @@
 from rest_framework import viewsets, status
-from .models import Predict
-from .serializer import PredictSerializer
+from .models import Predict2
+from .serializer import Predict2Serializer
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from predict import *
+from predict2 import *
 import joblib
 
-class PredictView(APIView):
-    queryset = Predict.objects.all()
-    serializer_class = PredictSerializer
-
+class Predict2View(APIView):
+    queryset = Predict2.objects.all()
+    serializer_class = Predict2Serializer
+    
     def get(self, request):
         return Response(request.data, status=200)
 
     def post(self, request):
         def string_to_list(string1):
-            f=open("./col_list.txt","r",encoding="utf-8")
-            # f=open(col_list,"rt",encoding="utf-8")
-            lines=[]
-            for line in f.readlines():
-                lines.append(line.replace("\n",""))
+            f=open("col_list_final2.txt","r")
+            lines=f.readlines()[0].split()
             lines=lines[1:]
             # print(lines)
             length=len(lines)
@@ -34,7 +31,7 @@ class PredictView(APIView):
             pass
 
 
-        classifier1 = joblib.load('./nb_classifier.pkl')
+        classifier1 = joblib.load('./nb_classifier4.pkl')
         predictData = classifier1.predict([string_to_list(request.data['checktext'])])
 
         # return Response(request.data, status=200)
