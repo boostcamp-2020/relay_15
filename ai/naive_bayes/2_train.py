@@ -1,5 +1,6 @@
 # -*- coding:utf-8 -*-
 
+# https://github.com/doljae/relay_15
 import collections
 import os
 import re
@@ -114,8 +115,5 @@ joblib.dump(classifier1,"nb_classifier5.pkl")
 # print("입력문장: "+str5)
 # print(classifier1.predict([string_to_list(str5)]))
 # str6="귀요미귀요미 교미교미 찡긋~!"
-# print("입력문장: "+str6)
-# print(classifier1.predict([string_to_list(str6)]))
-# str7="사볼 그만 좀 해라 인균아 적당히 해야지 ㅂㅅ쉑ㅋㅋ~!"
 # print("입력문장: "+str7)
 # print(classifier1.predict([string_to_list(str7)]))

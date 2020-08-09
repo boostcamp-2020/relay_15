@@ -6,6 +6,7 @@ from collections import Counter
 import pandas as pd
 from konlpy.tag import Okt
 
+# https://github.com/doljae/relay_15
 # 한국어 stop word 목록을 구글링 해 csv파일로 생성
 # https://github.com/stopwords-iso/stopwords-ko/blob/master/stopwords-ko.txt
 # https://www.ranks.nl/stopwords/korean

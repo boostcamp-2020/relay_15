@@ -1,4 +1,6 @@
 import joblib
+
+# https://github.com/doljae/relay_15
 # 입력된 문자열을 데이터셋에 입력값으로 적합한 형태로 변경해 결과를 반환
 def string_to_list(string1):
     f=open("col_list_final2.txt","r")
