@@ -5,7 +5,7 @@ import { useMemberState, useMemberDispatch } from '../contexts/MemberContext';
 import { apiFetch } from '../apis';
 import { useInput } from '../hooks';
 
-function Main() {
+function Main({ match }) {
   const { myInfo, homepage } = useMemberState();
   const dispatch = useMemberDispatch();
 
@@ -18,21 +18,16 @@ function Main() {
 
   // 홈페이지의 정보를 불러와야하지 않나
   // 일촌의 이름을 누른다 -> 홈페이지로 간다-> 요청한다 -> 정보를 보여준다.(이때 같이 방명록 보여줘야함)
-  // const fetchHomePageInfo = useCallback(async () => {
-  // const response = await apiFetch({
-  //   url: '/guestbook',
-  //   method: 'POST',
-  //   body: {
-  //     to: 'sample@naver.com',
-  //     from: '',
-  //     contents: 'hi',
-  //   },
-  // });
-  // }, []);
+  const fetchHomePageInfo = useCallback(async () => {
+    const response = await apiFetch({
+      url: `/guestbook/${match.params.email}`,
+      },
+    });
+  }, []);
 
-  // useEffect(() => {
-  //   fetchHomePageInfo();
-  // }, []);
+  useEffect(() => {
+    fetchHomePageInfo();
+  }, []);
 
   const writeGuestBook = useCallback(
     async (e) => {

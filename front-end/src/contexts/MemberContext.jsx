@@ -20,17 +20,24 @@ function memberReducer(state, action) {
         ...state,
         myInfo: {},
       };
-    case 'FRIENDS':
-      return {
-        ...state,
-        myInfo: {
-          ...state.myInfo,
-          friends: action.value,
-        },
-      };
+    // case 'FRIENDS':
+    //   return {
+    //     ...state,
+    //     myInfo: {
+    //       ...state.myInfo,
+    //       friends: action.value,
+    //     },
+    //   };
     case 'GET_GUESTBOOK': {
       return {
         ...state,
+        homepageInfo: {
+          // emile,
+          // name,
+          // friends
+          // gestbooks,
+          ...action.value,
+        },
       };
     }
     default:
@@ -50,7 +57,7 @@ export function MemberContextProvider({ children }) {
       email: '',
       name: '',
       friends: [],
-      contents: [],
+      guestbooks: [],
     },
   });
 
