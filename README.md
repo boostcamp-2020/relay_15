@@ -72,9 +72,9 @@
   - 방명록 작성
   ![Img](https://github.com/wooojini/relay_15/blob/master/img/mypage_4.PNG?raw=true)
   ![Img](https://github.com/wooojini/relay_15/blob/master/img/mypage_5.PNG?raw=true)
-  ![Img](https://github.com/wooojini/relay_15/blob/master/img/mypage_6.PNG?raw=true)
   
   - 필터링 과정
+  ![Img](https://github.com/wooojini/relay_15/blob/master/img/mypage_6.PNG?raw=true)
   ![Img](https://github.com/wooojini/relay_15/blob/master/img/mypage_7.PNG?raw=true)
   ![Img](https://github.com/wooojini/relay_15/blob/master/img/mypage_3.PNG?raw=true)
   
