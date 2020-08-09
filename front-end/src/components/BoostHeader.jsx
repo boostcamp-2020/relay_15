@@ -19,7 +19,7 @@ function BoostHeader() {
         <h1>BOOSTWORLD</h1>
       </Link>
       <nav className="page-nav">
-        <Link to="/main">
+        <Link to={`/main/${myInfo.email}`}>
           <button className="menu-button">내 미니홈피</button>
         </Link>
         <Link to="/mypage">

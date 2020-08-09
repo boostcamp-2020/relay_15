@@ -21,21 +21,26 @@ function Login() {
           body: { email, password },
         });
 
+        if (response.message === 'failed') {
+          alert('아이디나 비밀번호가 틀렸습니다.');
+          return;
+        }
+
         dispatch({
           type: 'LOGIN',
           value: {
-            email,
-            name: 'TEST',
-            friends: [],
+            email: response.email,
+            name: response.name,
+            friends: response.friends,
           },
         });
 
-        history.push('/main');
+        history.push(`/main/${email}`);
       } catch (e) {
         console.error(e);
       }
     },
-    [email, password]
+    [email, password, dispatch, history]
   );
 
   return (
@@ -46,7 +51,6 @@ function Login() {
           <div>
             <input
               type="text"
-              value=""
               id="email"
               value={email}
               onChange={onEmailChange}
@@ -56,7 +60,6 @@ function Login() {
           <div>
             <input
               type="password"
-              value=""
               id="password"
               value={password}
               onChange={onPasswordChange}

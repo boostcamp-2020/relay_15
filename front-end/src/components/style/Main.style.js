@@ -92,9 +92,19 @@ export const MainStyle = styled.div`
   }
 
   & aside {
-    width: 10%;
-    min-width: 65px;
+    width: 15%;
+    min-width: 100px;
+    overflow-x: hidden;
     border: 1px solid black;
     border-radius: 5px;
+    text-align: center;
+    a {
+      color: black;
+      cursor: pointer;
+      text-decoration: none;
+      &:hover {
+        color: white;
+      }
+    }
   }
 `;

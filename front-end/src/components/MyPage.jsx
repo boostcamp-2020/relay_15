@@ -4,14 +4,14 @@ import { useInput, useLoginCheck } from '../hooks';
 import { useHistory } from 'react-router-dom';
 import BoostHeader from './BoostHeader';
 import { apiFetch } from '../apis';
-import { useMemberState } from '../contexts/MemberContext';
+
+// 회원 정보 수정은 미구현
 
 function MyPage() {
   const [name, onChangeName] = useInput('');
   const [password, onChangePassword] = useInput('');
   const [passwordCheck, onChangePasswordCheck] = useInput('');
   const history = useHistory();
-  // const { myInfo } = useMemberState();
 
   useLoginCheck();
 
@@ -25,7 +25,7 @@ function MyPage() {
       });
       history.push('/main');
     },
-    [name, password]
+    [name, password, history]
   );
 
   const onWithdrawal = useCallback(async (e) => {

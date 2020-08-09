@@ -1,7 +1,6 @@
 import React, { useEffect, useCallback, useState } from 'react';
 import { useInput } from '../hooks';
 import { useHistory } from 'react-router-dom';
-import { useMemberDispatch } from '../contexts/MemberContext';
 import { apiFetch } from '../apis';
 import { SignUpStyle } from './style/SignUp.style';
 
@@ -13,7 +12,6 @@ function SignUp() {
   const [isCorrectPassword, setIsCorrectPassword] = useState(false);
 
   const history = useHistory();
-  const dispatch = useMemberDispatch();
 
   const onSubmit = useCallback(
     async (e) => {
@@ -27,7 +25,7 @@ function SignUp() {
         return;
       }
       try {
-        const reponse = await apiFetch({
+        await apiFetch({
           url: '/signup',
           method: 'POST',
           body: {
@@ -43,7 +41,7 @@ function SignUp() {
         alert('예기치 못 한 에러가 발생했습니다.');
       }
     },
-    [email, password, passwordCheck, name]
+    [email, password, name, isCorrectPassword, history]
   );
 
   useEffect(() => {

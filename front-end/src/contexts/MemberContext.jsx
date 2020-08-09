@@ -28,15 +28,24 @@ function memberReducer(state, action) {
     //       friends: action.value,
     //     },
     //   };
-    case 'GET_GUESTBOOK': {
+    case 'GET_MAIN_INFO': {
       return {
         ...state,
-        homepageInfo: {
+        mainInfo: {
           // emile,
           // name,
           // friends
           // gestbooks,
           ...action.value,
+        },
+      };
+    }
+    case 'ADD_GUEST_BOOK': {
+      return {
+        ...state,
+        mainInfo: {
+          ...state.mainInfo,
+          guestBooks: action.value,
         },
       };
     }
@@ -53,7 +62,7 @@ export function MemberContextProvider({ children }) {
       name: 'J067',
       friends: ['김도연', '김도호', '문석암', '전경윤', '신승현'],
     },
-    homepage: {
+    mainInfo: {
       email: '',
       name: '',
       friends: [],
