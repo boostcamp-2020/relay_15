@@ -1,9 +1,7 @@
 import React, { useReducer, useContext } from 'react';
-
 import { createContext } from 'react';
 
 const MemberContext = createContext(undefined);
-
 const DispatchContext = createContext();
 
 function memberReducer(state, action) {
@@ -21,18 +19,27 @@ function memberReducer(state, action) {
         ...state,
         myInfo: {},
       };
-    case 'FRIENDS':
+    case 'GET_MAIN_INFO': {
       return {
         ...state,
-        myInfo: {
-          ...state.myInfo,
-          friends: action.value,
+        mainInfo: {
+          // emile,
+          // name,
+          // friends
+          // gestbooks,
+          ...action.value,
         },
       };
-    case 'CREATE_GUEST_BOOK':
+    }
+    case 'ADD_GUEST_BOOK': {
       return {
         ...state,
+        mainInfo: {
+          ...state.mainInfo,
+          guestBooks: action.value,
+        },
       };
+    }
     default:
       throw new Error('Unhandled action');
   }
@@ -42,15 +49,15 @@ export function MemberContextProvider({ children }) {
   const [state, dispatch] = useReducer(memberReducer, {
     loginStatus: '',
     myInfo: {
-      email: '이메일',
-      name: 'J067',
-      friends: ['김도연', '김도호', '문석암', '전경윤', '신승현'],
-    },
-    homepage: {
       email: '',
       name: '',
       friends: [],
-      contents: [],
+    },
+    mainInfo: {
+      email: '',
+      name: '',
+      friends: [],
+      guestbooks: [],
     },
   });
 
