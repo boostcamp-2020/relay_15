@@ -13,7 +13,6 @@ router.post('/', function(req, res, next) {
     const dataBuffer = fs.readFileSync('./public/database/users.json')
     const dataJson = dataBuffer.toString()
     const list = JSON.parse(dataJson)
-    console.dir(list)
 
     const len = list.data.length;
     const info = req.body;
@@ -23,11 +22,23 @@ router.post('/', function(req, res, next) {
         password: `${info.password}`,
         name: `${info.name}`
     });
-    console.dir(list)
+    
     const stringJson = JSON.stringify(list);
     fs.writeFileSync('./public/database/users.json', stringJson)
 
     console.dir(info);
+
+    const dataBuffer_guest = fs.readFileSync('./public/database/guestbook.json')
+    const dataJson_guest = dataBuffer_guest.toString()
+    const guestbooks = JSON.parse(dataJson_guest)
+
+    guestbooks.data.push({
+        to: `${info.email}`,
+        data : []
+    })
+
+    const stringJson_guest = JSON.stringify(guestbooks);
+    fs.writeFileSync('./public/database/guestbook.json', stringJson_guest)
     res.send({ status: "OK", data: info });
 });
 
