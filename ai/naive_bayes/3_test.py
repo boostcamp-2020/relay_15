@@ -1,25 +1,43 @@
 import joblib
-
+from konlpy.tag import Okt
 # https://github.com/doljae/relay_15
 # 입력된 문자열을 데이터셋에 입력값으로 적합한 형태로 변경해 결과를 반환
+
 def string_to_list(string1):
-    f=open("col_list_final2.txt","r")
+    f=open("col_list_final3.txt","r")
     lines=f.readlines()[0].split()
     lines=lines[1:]
+    okt = Okt()
+    t1=okt.pos(string1,norm= True, stem=True)
+    str_list=[x for (x,y) in t1]
     # print(lines)
     length=len(lines)
     result=[0]*length
     for i in range(length):
-        if lines[i] in string1:
+        if lines[i] in str_list:
             result[i]+=1
-            if lines[i] == "ㅂㅅ":
-                print("!!")
     # print(sum(result))
     return result
     pass
 
+# def string_to_list(string1):
+#     f=open("col_list_final2.txt","r")
+#     lines=f.readlines()[0].split()
+#     lines=lines[1:]
+#     # print(lines)
+#     length=len(lines)
+#     result=[0]*length
+#     for i in range(length):
+#         if lines[i] in string1:
+#             result[i]+=1
+#             if lines[i] == "ㅂㅅ":
+#                 print("!!")
+#     # print(sum(result))
+#     return result
+#     pass
+
 # 모델 호출
-classifier1 = joblib.load('nb_classifier4.pkl')
+classifier1 = joblib.load('nb_classifier5.pkl')
 # 사용은 아래와 같다
 # classifier1.predict([string_to_list(input_string)])
 
