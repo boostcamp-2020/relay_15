@@ -1,5 +1,6 @@
 # 악성 글 분류 모델 using Naive Bayes Classifier
 ### 2020.08.09.
+### J030, J068, J104, J142, J217
 ## 요약
 Naive Bayes Model을 이용한 악성 글 이진 분류 모델
 
