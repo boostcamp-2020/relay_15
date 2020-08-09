@@ -2,7 +2,7 @@ import React, { useEffect, useCallback, useState } from 'react';
 import { useInput } from '../hooks';
 import { useHistory } from 'react-router-dom';
 import { apiFetch } from '../apis';
-import { SignUpStyle } from './style/SignUp.style';
+import { SignUpStyle } from './styles/SignUp.style';
 
 function SignUp() {
   const [email, onChangeEmail] = useInput('');

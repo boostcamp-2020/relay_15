@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { useMemberState, useMemberDispatch } from '../contexts/MemberContext';
-import { Header } from './style/BoostHeader.style';
+import { Header } from './styles/BoostHeader.style';
 import { useHistory } from 'react-router-dom';
 
 function BoostHeader() {

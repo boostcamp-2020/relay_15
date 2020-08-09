@@ -1,12 +1,12 @@
 import React, { useCallback, useEffect } from 'react';
-import BoostHeader from './BoostHeader';
-import GuestBook from './GuestBook';
-import Friend from './Friend';
+import BoostHeader from '../components/BoostHeader';
+import GuestBook from '../components/GuestBook';
+import Friend from '../components/Friend';
 
 import { useMemberState, useMemberDispatch } from '../contexts/MemberContext';
 import { apiFetch } from '../apis';
 import { useInput } from '../hooks';
-import { MainStyle } from './style/Main.style';
+import { MainStyle } from './styles/Main.style';
 
 function Main({ match }) {
   const { myInfo, mainInfo } = useMemberState();
