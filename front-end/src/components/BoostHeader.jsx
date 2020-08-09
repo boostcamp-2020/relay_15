@@ -27,7 +27,7 @@ function BoostHeader() {
             내 정보 관리
           </button>
         </Link>
-        {myInfo.id ? (
+        {myInfo.email ? (
           <button className="menu-button" onClick={onLogOut}>
             로그아웃
           </button>

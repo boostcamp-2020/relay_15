@@ -1,14 +1,13 @@
 import React, { useReducer, useContext } from 'react';
-
 import { createContext } from 'react';
 
 const MemberContext = createContext(undefined);
-
 const DispatchContext = createContext();
 
 function memberReducer(state, action) {
   switch (action.type) {
     case 'LOGIN':
+      console.log(action.value);
       return {
         ...state,
         myInfo: {
@@ -29,10 +28,11 @@ function memberReducer(state, action) {
           friends: action.value,
         },
       };
-    case 'CREATE_GUEST_BOOK':
+    case 'GET_GUESTBOOK': {
       return {
         ...state,
       };
+    }
     default:
       throw new Error('Unhandled action');
   }

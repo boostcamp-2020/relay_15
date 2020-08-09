@@ -15,19 +15,20 @@ function Login() {
     async (e) => {
       e.preventDefault();
       try {
-        // const response = await apiFetch({
-        //   method: 'POST',
-        //   url: '/login',
-        //   body: { email, password },
-        // });
+        const response = await apiFetch({
+          method: 'POST',
+          url: '/login',
+          body: { email, password },
+        });
 
-        // dispatch({
-        //   type: 'create',
-        //   value: {
-        //     email,
-        //     name: response.name,
-        //   },
-        // });
+        dispatch({
+          type: 'LOGIN',
+          value: {
+            email,
+            name: 'TEST',
+            friends: [],
+          },
+        });
 
         history.push('/main');
       } catch (e) {

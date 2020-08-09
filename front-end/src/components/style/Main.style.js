@@ -16,6 +16,7 @@ export const MainStyle = styled.div`
     display: flex;
     border: 1px solid black;
     width: 80%;
+    min-width: 520px;
     height: 60vh;
     border-radius: 10px;
     justify-content: space-between;
@@ -23,6 +24,7 @@ export const MainStyle = styled.div`
 
   .profile-content {
     padding-top: 20px;
+    width: 60%;
   }
 
   .profile-intro {
@@ -42,6 +44,7 @@ export const MainStyle = styled.div`
     border-radius: 5px;
     margin-bottom: 5px;
     height: 30px;
+    min-width: 60px;
     cursor: pointer;
     transition: ease-in-out 0.7s;
   }
@@ -71,8 +74,9 @@ export const MainStyle = styled.div`
   }
   .guest-book-textarea {
     font-family: 'MapoPeacefull' !important;
-    min-width: 420px;
-    max-width: 480px;
+    /* min-width: 420px;
+    max-width: 480px; */
+    width: 100%;
     height: 80px;
     border-radius: 8px;
   }
@@ -84,5 +88,13 @@ export const MainStyle = styled.div`
     color: white;
     border: 0px;
     border-radius: 8px;
+    cursor: pointer;
+  }
+
+  & aside {
+    width: 10%;
+    min-width: 65px;
+    border: 1px solid black;
+    border-radius: 5px;
   }
 `;

@@ -1,25 +1,32 @@
 import React, { useCallback } from 'react';
 import { MyPageStyle } from './style/MyPage.style';
-import { useInput } from '../hooks';
+import { useInput, useLoginCheck } from '../hooks';
 import { useHistory } from 'react-router-dom';
 import BoostHeader from './BoostHeader';
 import { apiFetch } from '../apis';
+import { useMemberState } from '../contexts/MemberContext';
 
 function MyPage() {
   const [name, onChangeName] = useInput('');
   const [password, onChangePassword] = useInput('');
   const [passwordCheck, onChangePasswordCheck] = useInput('');
   const history = useHistory();
+  // const { myInfo } = useMemberState();
 
-  const onSubmit = useCallback(async (e) => {
-    e.preventDefault();
-    const response = await apiFetch({
-      method: 'PUT',
-      url: '/myinfo',
-      body: { name, password },
-    });
-    history.push('/main');
-  }, []);
+  useLoginCheck();
+
+  const onSubmit = useCallback(
+    async (e) => {
+      e.preventDefault();
+      const response = await apiFetch({
+        method: 'PUT',
+        url: '/myinfo',
+        body: { name, password },
+      });
+      history.push('/main');
+    },
+    [name, password]
+  );
 
   const onWithdrawal = useCallback(async (e) => {
     e.preventDefault();
