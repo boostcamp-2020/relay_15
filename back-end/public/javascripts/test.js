@@ -25,7 +25,7 @@ function callAiApi(text) {
         checktext: text
     };
 
-    fetch('/call', {
+    fetch('/guestbook', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -55,7 +55,7 @@ function addGuestbook() {
     let data = {
         to: 'sample1@naver.com',
         from: '456',
-        contents: '789'
+        contents: '안녕하세요'
     };
 
     fetch('/guestbook', {
