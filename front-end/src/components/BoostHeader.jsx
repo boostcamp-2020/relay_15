@@ -2,16 +2,21 @@ import React, { useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { useMemberState, useMemberDispatch } from '../contexts/MemberContext';
 import { Header } from './style/BoostHeader.style';
+import { useHistory } from 'react-router-dom';
 
 function BoostHeader() {
   const { myInfo } = useMemberState();
   const dispatch = useMemberDispatch();
+  const history = useHistory();
 
   const onLogOut = useCallback(() => {
     dispatch({
       type: 'LOGOUT',
     });
-  }, []);
+
+    history.push('/');
+    alert('로그아웃 되었습니다.');
+  }, [dispatch, history]);
 
   return (
     <Header>

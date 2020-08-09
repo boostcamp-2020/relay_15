@@ -7,7 +7,6 @@ const DispatchContext = createContext();
 function memberReducer(state, action) {
   switch (action.type) {
     case 'LOGIN':
-      console.log(action.value);
       return {
         ...state,
         myInfo: {
@@ -20,14 +19,6 @@ function memberReducer(state, action) {
         ...state,
         myInfo: {},
       };
-    // case 'FRIENDS':
-    //   return {
-    //     ...state,
-    //     myInfo: {
-    //       ...state.myInfo,
-    //       friends: action.value,
-    //     },
-    //   };
     case 'GET_MAIN_INFO': {
       return {
         ...state,
@@ -58,9 +49,9 @@ export function MemberContextProvider({ children }) {
   const [state, dispatch] = useReducer(memberReducer, {
     loginStatus: '',
     myInfo: {
-      email: '이메일',
-      name: 'J067',
-      friends: ['김도연', '김도호', '문석암', '전경윤', '신승현'],
+      email: '',
+      name: '',
+      friends: [],
     },
     mainInfo: {
       email: '',

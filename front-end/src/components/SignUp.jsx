@@ -37,7 +37,7 @@ function SignUp() {
 
         history.push('/');
       } catch (e) {
-        console.errror(e.message);
+        console.error(e.message);
         alert('예기치 못 한 에러가 발생했습니다.');
       }
     },
@@ -107,8 +107,8 @@ function SignUp() {
                   onChange={onChangeName}
                 />
               </div>
-              <button className="signup-button">
-                <a>회원가입</a>
+              <button type="submit" className="signup-button">
+                회원가입
               </button>
             </form>
           </section>

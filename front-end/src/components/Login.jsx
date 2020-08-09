@@ -4,12 +4,15 @@ import { useHistory, Link } from 'react-router-dom';
 import { LoginBox } from './style/Login.style';
 import { apiFetch } from '../apis';
 import { useMemberDispatch } from '../contexts/MemberContext';
+import { useLogoutCheck } from '../hooks';
 
 function Login() {
   const [email, onEmailChange] = useInput('');
   const [password, onPasswordChange] = useInput('');
   const history = useHistory();
   const dispatch = useMemberDispatch();
+
+  useLogoutCheck();
 
   const onSubmit = useCallback(
     async (e) => {

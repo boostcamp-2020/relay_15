@@ -1,10 +1,12 @@
 import React, { useCallback, useEffect } from 'react';
 import BoostHeader from './BoostHeader';
-import { MainStyle } from './style/Main.style';
+import GuestBook from './GuestBook';
+import Friend from './Friend';
+
 import { useMemberState, useMemberDispatch } from '../contexts/MemberContext';
 import { apiFetch } from '../apis';
 import { useInput } from '../hooks';
-import { Link } from 'react-router-dom/cjs/react-router-dom.min';
+import { MainStyle } from './style/Main.style';
 
 function Main({ match }) {
   const { myInfo, mainInfo } = useMemberState();
@@ -12,19 +14,12 @@ function Main({ match }) {
 
   const [text, onChnageText, setText] = useInput('');
 
-  // 게스트 불러오기, 누구의 방명록인지
-  // const getGuestBook = useCallback(async () => {
-  //   const response = await apiFetch({ url: '/guestbook' });
-  // }, []);
-
-  // 홈페이지의 정보를 불러와야하지 않나
-  // 일촌의 이름을 누른다 -> 홈페이지로 간다-> 요청한다 -> 정보를 보여준다.(이때 같이 방명록 보여줘야함)
-  const fetchHomePageInfo = useCallback(async () => {
+  const fetchMainInfo = useCallback(async () => {
     try {
       const response = await apiFetch({
         url: `/guestbook/${match.params.email}`,
       });
-      console.log(response);
+
       dispatch({
         type: 'GET_MAIN_INFO',
         value: response,
@@ -35,8 +30,8 @@ function Main({ match }) {
   }, [match.params.email, dispatch]);
 
   useEffect(() => {
-    fetchHomePageInfo();
-  }, [match.params.email, fetchHomePageInfo]);
+    fetchMainInfo();
+  }, [match.params.email, fetchMainInfo]);
 
   const writeGuestBook = useCallback(
     async (e) => {
@@ -92,7 +87,9 @@ function Main({ match }) {
 
             <ul className="guest-book-list">
               {mainInfo.guestbooks &&
-                mainInfo.guestbooks.map((book) => <li key={book}>{book}</li>)}
+                mainInfo.guestbooks.map((book) => (
+                  <GuestBook key={book.no} book={book} />
+                ))}
             </ul>
           </section>
 
@@ -108,9 +105,7 @@ function Main({ match }) {
           <ul className="friends-list">
             {mainInfo.friends &&
               mainInfo.friends.map((friend) => (
-                <li key={friend}>
-                  <Link to={`/main/${friend}`}>{friend}</Link>
-                </li>
+                <Friend key={friend} friend={friend} />
               ))}
           </ul>
         </aside>
