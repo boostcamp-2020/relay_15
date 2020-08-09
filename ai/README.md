@@ -142,6 +142,9 @@ http://w3devlabs.net/wp/?p=17273
 
 - 결과적으로 content(글 내용), label(악성 유무), 3301개의 형태소 feature로 구성된 dataset이 완성됨
 
+- 데이터셋은 아래 링크를 참고
+- https://drive.google.com/file/d/1P1Q6xErVYMv-IM12TsmAiK-tznWniV2J/view?usp=sharing
+
 ### scikit-learn을 사용한 모델 선언 및 학습
 
 - Python의 머신러닝 라이브러리 Scikit-learn에서 제공하는 Naive Bayes Model을 사용
