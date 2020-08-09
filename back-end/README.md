@@ -41,15 +41,16 @@ hi
 - output : JSON
 
   ```
-  // 로그인 성공 시
+  // 로그인 성공 시 - status 200
   {
-  	"loginStatus" : "successed",
-  	"name" : userName
+    message : "success"
+  	email : "userEmail",
+    name : "userName"
   }
   
-  // 로그인 실패 시
+  // 로그인 실패 시 - status 404
   {
-  	"loginStatus" : "failed"
+  	message : "failed"
   }
   ```
 
@@ -57,7 +58,7 @@ hi
 
 
 
-#### /call
+#### /call - ai 서버 호출하는 api
 
 - Input : JSON
 
@@ -147,10 +148,10 @@ hi
 
 
 
-- output : JSON
+- output : JSON - status 200
 
   ```
   {
-    status: "OK"
+  	message : "success"
   }
   ```
