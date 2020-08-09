@@ -1,1 +1,82 @@
-{"title":"userlist","data":[{"no":1,"email":"abc@naver.com","password":"abc","name":"김성훈"},{"no":2,"email":"contact@naver.com","password":"contact","name":"드니 빌뇌브"},{"no":3,"email":"theking@naver.com","password":"theking","name":"한재림"},{"no":4,"email":"hello4@naver.com","password":"abc123","name":"사용자4"},{"no":5,"email":"hello5@naver.com","password":"abc123","name":"사용자5"},{"no":6,"email":"hello6@naver.com","password":"abc123","name":"사용자6"},{"no":7,"email":"hello7@naver.com","password":"abc123","name":"사용자7"},{"no":8,"email":"postman@post.com","password":"post","name":"포스트맨"},{"no":9,"email":"postman@post.com","password":"post","name":"포스트맨"},{"no":10,"email":"postman@post.com","password":"post","name":"포스트맨"},{"no":11,"email":"aaa","password":"aaa","name":"aaa"},{"no":12,"email":"ccc","password":"ccc","name":"ccc"}]}
+{
+    "title": "userlist",
+    "data": [
+        {
+            "no": 1,
+            "email": "abc@naver.com",
+            "password": "abc",
+            "name": "김성훈",
+            "neighbor" : [
+                "contanct@naver.com",
+                "theling@naver.com",
+                "hello@naver.com"
+            ]
+        },
+        {
+            "no": 2,
+            "email": "contact@naver.com",
+            "password": "contact",
+            "name": "드니 빌뇌브"
+        },
+        {
+            "no": 3,
+            "email": "theking@naver.com",
+            "password": "theking",
+            "name": "한재림"
+        },
+        {
+            "no": 4,
+            "email": "hello4@naver.com",
+            "password": "abc123",
+            "name": "사용자4"
+        },
+        {
+            "no": 5,
+            "email": "hello5@naver.com",
+            "password": "abc123",
+            "name": "사용자5"
+        },
+        {
+            "no": 6,
+            "email": "hello6@naver.com",
+            "password": "abc123",
+            "name": "사용자6"
+        },
+        {
+            "no": 7,
+            "email": "hello7@naver.com",
+            "password": "abc123",
+            "name": "사용자7"
+        },
+        {
+            "no": 8,
+            "email": "postman@post.com",
+            "password": "post",
+            "name": "포스트맨"
+        },
+        {
+            "no": 9,
+            "email": "postman@post.com",
+            "password": "post",
+            "name": "포스트맨"
+        },
+        {
+            "no": 10,
+            "email": "postman@post.com",
+            "password": "post",
+            "name": "포스트맨"
+        },
+        {
+            "no": 11,
+            "email": "aaa",
+            "password": "aaa",
+            "name": "aaa"
+        },
+        {
+            "no": 12,
+            "email": "ccc",
+            "password": "ccc",
+            "name": "ccc"
+        }
+    ]
+}

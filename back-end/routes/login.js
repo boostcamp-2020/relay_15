@@ -6,6 +6,9 @@ router.post('/', function(req, res) {
     const userData = userInfo.data
     const len = userData.length
 
+    console.log(12345)
+    console.log(req.body)
+
     for (var i = 0; i < len; i++) {
         if (req.body.email === userData[i].email && req.body.password === userData[i].password) {
             break
