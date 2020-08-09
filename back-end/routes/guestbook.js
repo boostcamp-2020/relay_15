@@ -42,11 +42,11 @@ router.post('/', function(req, res, next) {
 
     const guestlen = guestbooks.data[i].data.length;
 
-    getData({checktext:req.body.contents}).then(function(rsltData){
+    getData({checktext:`${req.body.content}`}).then(function(rsltData){
         guestbooks.data[i].data.push({
             no : (guestlen + 1),
             from : `${req.body.from}`,
-            contents : `${req.body.contents}`,
+            contents : `${req.body.content}`,
             isBad : rsltData.Result
         });
 

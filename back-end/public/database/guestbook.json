@@ -12,14 +12,8 @@
                 },
                 {
                     "no": 2,
-                    "from": "적은사람이름2",
-                    "contents": "안녕하세요 ㅋㅋㅋ",
-                    "isBad": 0
-                },
-                {
-                    "no": 3,
-                    "from": "456",
-                    "contents": "789",
+                    "from": "sample1@naver.com",
+                    "contents": "안녕하세요",
                     "isBad": 0
                 }
             ]
