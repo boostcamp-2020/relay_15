@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Login from './components/Login';
-import SignUp from './components/SignUp';
-import MyPage from './components/MyPage';
-import Main from './components/Main';
+import Login from './pages/Login';
+import SignUp from './pages/SignUp';
+import MyPage from './pages/MyPage';
+import Main from './pages/Main';
 import { MemberContextProvider } from './contexts/MemberContext';
 import { createGlobalStyle } from 'styled-components';
 

@@ -1,8 +1,8 @@
 import React, { useCallback } from 'react';
-import { MyPageStyle } from './style/MyPage.style';
+import { MyPageStyle } from './styles/MyPage.style';
 import { useInput, useLoginCheck } from '../hooks';
 import { useHistory } from 'react-router-dom';
-import BoostHeader from './BoostHeader';
+import BoostHeader from '../components/BoostHeader';
 import { apiFetch } from '../apis';
 
 // 회원 정보 수정은 미구현
