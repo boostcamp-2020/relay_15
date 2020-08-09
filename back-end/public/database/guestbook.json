@@ -1,10 +1,8 @@
 {
     "title": "guestbooklist",
-    "data": [
-        {
+    "data": [{
             "to": "sample1@naver.com",
-            "data": [
-                {
+            "data": [{
                     "no": 1,
                     "from": "적은사람이메일1",
                     "contents": "안녕하세요 ㅎㅎㅎ",
@@ -26,8 +24,7 @@
         },
         {
             "to": "sample2@naver.com",
-            "data": [
-                {
+            "data": [{
                     "no": 1,
                     "from": "적은사람이름1",
                     "contents": "반갑습니다 ㅎㅎㅎ",
