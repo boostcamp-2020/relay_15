@@ -1,12 +1,13 @@
 # 목차
-**[악성 글 분류 모델 using Naive Bayes Classifier](#모델-01.)**
-**[악성 글 분류 모델 Using KoBert](#모델-02.)**
+**[악성 글 분류 모델 using Naive Bayes Classifier](#모델-01)**
+
+**[악성 글 분류 모델 Using KoBert](#모델-02)**
 
 ## 작성 맴버
 J030 김도호, J068문석암, J104 신우진, J142 이석재,  J217 한종오 
 
 
-# 모델 01.
+# 모델 01
 # 악성 글 분류 모델 using Naive Bayes Classifier
 
 
@@ -208,7 +209,7 @@ http://w3devlabs.net/wp/?p=17273
 
 - NLP에 CNN을 적용한 경우 등 인공지능 분야는 도메인 지식이 정말 중요하다는 것을 느낄 수 있었다.
 
-# 모델 02.
+# 모델 02
 
 # 악성 글 분류 모델 Using KoBert
 
