@@ -78,6 +78,7 @@
   ![Img](https://github.com/wooojini/relay_15/blob/master/img/mypage_7.PNG?raw=true)
   
   - 로그아웃
+  ![Img](https://github.com/wooojini/relay_15/blob/master/img/mypage_1.PNG?raw=true)
   ![Img](https://github.com/wooojini/relay_15/blob/master/img/mypage_logout.PNG?raw=true)
 
 - 회원가입 페이지
