@@ -1,19 +1,29 @@
 var express = require('express');
 var router = express.Router();
-var userInfo = require('../user.json');
+var userInfo = require('../public/database/users.json');
 
-router.get('/', function (req, res, next) {
-    res.send(userInfo)
+router.post('/', function(req, res) {
+    const userData = userInfo.data
+    const len = userData.length
+
+    console.log(req.body)
+
+    for (var i = 0; i < len; i++) {
+        if (req.body.email === userData[i].email && req.body.password === userData[i].password) {
+            break
+        }   
+    }
+
+    if (i === len) {
+        res.status(404).json({ message : 'failed' })
+    } else {
+        res.status(200).json({
+            message : 'success',
+            email : userData[i].email,
+            name : userData[i].name,
+            friends : userData[i].friends
+        })
+    }
 });
-
-/* router.get('/:id', function (req, res, next) {
-    var id = parseInt(req.params.id, 10)
-    var movie = movies.filter(function (movie) {
-        return movie.id === id
-    });
-    
-    res.send(movie)
-}); */
-
 
 module.exports = router;
