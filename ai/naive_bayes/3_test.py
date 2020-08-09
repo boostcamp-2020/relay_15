@@ -37,7 +37,7 @@ def string_to_list(string1):
 #     pass
 
 # 모델 호출
-classifier1 = joblib.load('nb_classifier5.pkl')
+classifier1 = joblib.load('nb_classifier_ver3.pkl')
 # 사용은 아래와 같다
 # classifier1.predict([string_to_list(input_string)])
 
