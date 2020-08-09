@@ -50,15 +50,15 @@
 
 ### 전체 서비스 구조
 
-![Img](https://github.com/wooojini/Parser/blob/master/img/test.JPG?raw=true)
+![Img](https://github.com/wooojini/relay_15/blob/master/img/service.jpeg?raw=true)
 
 ### 로그인 / 회원가입
 
-![Img](https://github.com/wooojini/Parser/blob/master/img/test.JPG?raw=true)
+![Img](https://github.com/wooojini/relay_15/blob/master/img/login_signup.png?raw=true)
 
 ### 방명록 댓글 필터링 과정
 
-![Img](https://github.com/wooojini/Parser/blob/master/img/test.JPG?raw=true)
+![Img](https://github.com/wooojini/relay_15/blob/master/img/filtering.jpeg?raw=true)
 
 - 참여자 리스트
 
