@@ -58,7 +58,7 @@
 
 ### 방명록 댓글 필터링 과정
 
-![Img](https://github.com/wooojini/relay_15/blob/master/img/filtering.jpeg?raw=true)
+![Img](https://github.com/wooojini/relay_15/blob/master/img/filtering_.jpeg?raw=true)
 
 - 참여자 리스트
 
