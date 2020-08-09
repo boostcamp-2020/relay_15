@@ -1,1 +1,45 @@
-{"title":"guestbooklist","data":[{"to":"sample1@naver.com","data":[{"no":1,"from":"적은사람이름1","contents":"안녕하세요 ㅎㅎㅎ"},{"no":2,"from":"적은사람이름2","contents":"안녕하세요 ㅋㅋㅋ"},{"no":3,"from":"456","contents":"789"},{"no":4,"from":"456","contents":"789"}]},{"to":"sample2@naver.com","data":[{"no":1,"from":"적은사람이름1","contents":"반갑습니다 ㅎㅎㅎ"},{"no":2,"from":"적은사람이름2","contents":"반갑습니다 ㅋㅋㅋ"},{"no":3,"from":"적은사람이름3","contents":"반갑습니다"}]}]}
+{
+    "title": "guestbooklist",
+    "data": [
+        {
+            "to": "sample1@naver.com",
+            "data": [
+                {
+                    "no": 1,
+                    "from": "적은사람이름1",
+                    "contents": "안녕하세요 ㅎㅎㅎ"
+                },
+                {
+                    "no": 2,
+                    "from": "적은사람이름2",
+                    "contents": "안녕하세요 ㅋㅋㅋ"
+                },
+                {
+                    "no": 3,
+                    "from": "456",
+                    "contents": "789"
+                }
+            ]
+        },
+        {
+            "to": "sample2@naver.com",
+            "data": [
+                {
+                    "no": 1,
+                    "from": "적은사람이름1",
+                    "contents": "반갑습니다 ㅎㅎㅎ"
+                },
+                {
+                    "no": 2,
+                    "from": "적은사람이름2",
+                    "contents": "반갑습니다 ㅋㅋㅋ"
+                },
+                {
+                    "no": 3,
+                    "from": "적은사람이름3",
+                    "contents": "반갑습니다"
+                }
+            ]
+        }
+    ]
+}
