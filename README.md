@@ -76,7 +76,6 @@
   - 필터링 과정
   ![Img](https://github.com/wooojini/relay_15/blob/master/img/mypage_6.PNG?raw=true)
   ![Img](https://github.com/wooojini/relay_15/blob/master/img/mypage_7.PNG?raw=true)
-  ![Img](https://github.com/wooojini/relay_15/blob/master/img/mypage_3.PNG?raw=true)
   
   - 로그아웃
   ![Img](https://github.com/wooojini/relay_15/blob/master/img/mypage_logout.PNG?raw=true)
