@@ -26,7 +26,7 @@ function SignUp() {
       }
       try {
         await apiFetch({
-          url: '/signup',
+          url: '/users',
           method: 'POST',
           body: {
             email,
@@ -70,7 +70,7 @@ function SignUp() {
                 <label htmlFor="email">이메일 아이디</label>
                 <input
                   id="email"
-                  type="text"
+                  type="email"
                   value={email}
                   onChange={onChangeEmail}
                 />

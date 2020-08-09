@@ -53,7 +53,7 @@ function Login() {
         <form onSubmit={onSubmit} name="login" className="login">
           <div>
             <input
-              type="text"
+              type="email"
               id="email"
               value={email}
               onChange={onEmailChange}
