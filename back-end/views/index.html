@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src='/javascripts/test.js' ></script>
+  </head>
+  <body>
+    <input id='email' type="textbox">
+    <input id='password' type="password">
+    <button onclick="sendInfo(document.getElementById('email').value,document.getElementById('password').value)">send</button>
+    <br>
+    <input id='text' type='textbox'>
+    <button onclick="callAiApi(document.getElementById('text').value)">test</button>
+    <br>
+    <input id='text2' type='textbox'>
+    <button onclick="getGuestbook()">guestbook</button>
+    <button onclick="addGuestbook()">addGuestbook</button>
+  </body>
+</html>

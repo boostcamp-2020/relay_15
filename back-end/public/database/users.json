@@ -1,0 +1,49 @@
+{
+    "title": "userlist",
+    "data": [
+        {
+            "no": 1,
+            "email": "sample1@naver.com",
+            "password": "abc",
+            "name": "김성훈",
+            "friends": [
+                "contanct@naver.com",
+                "theling@naver.com",
+                "hello@naver.com"
+            ]
+        },
+        {
+            "no": 2,
+            "email": "contact@naver.com",
+            "password": "contact",
+            "name": "드니 빌뇌브",
+            "friends": [
+                "sample1@naver.com",
+                "theling@naver.com",
+                "hello@naver.com"
+            ]
+        },
+        {
+            "no": 3,
+            "email": "theking@naver.com",
+            "password": "theking",
+            "name": "한재림",
+            "friends": [
+                "contanct@naver.com",
+                "sample1@naver.com",
+                "hello@naver.com"
+            ]
+        },
+        {
+            "no": 4,
+            "email": "hello@naver.com",
+            "password": "abc123",
+            "name": "사용자4",
+            "friends": [
+                "contanct@naver.com",
+                "theling@naver.com",
+                "sample1@naver.com"
+            ]
+        }
+    ]
+}
