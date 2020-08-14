@@ -10,6 +10,8 @@ React.js, Context API, styled-components
 
 ## 사용법
 
+front-end/src/secret.js 에 `export const BASE_URL = 'url';` 로컬에서 실행한다면 'http://localhost:5000' 입력
+
 `npm install`
 
 `npm start`
