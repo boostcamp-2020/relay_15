@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const MainStyle = styled.div`
-  background-color: rgb(230, 230, 230);
+  background-color: #eeeeee;
   font-family: 'MapoPeacefull';
   width: 100%;
   height: 100vh;

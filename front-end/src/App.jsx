@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { createGlobalStyle } from 'styled-components';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import MyPage from './pages/MyPage';
 import Main from './pages/Main';
 import { MemberContextProvider } from './contexts/MemberContext';
-import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
   body{ 
@@ -35,6 +35,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={Login} />
           <Route path="/main/:email" render={(props) => <Main {...props} />} />
+          <Route path="/main/:email?/:id?" render={(props) => <Main {...props} />} />
           <Route path="/signup" component={SignUp} />
           <Route path="/mypage" component={MyPage} />
         </Switch>
