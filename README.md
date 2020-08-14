@@ -68,18 +68,18 @@
 - 마이페이지
   ![Img](https://github.com/wooojini/relay_15/blob/master/img/mypage_1.PNG?raw=true)
   ![Img](https://github.com/wooojini/relay_15/blob/master/img/mypage_3.PNG?raw=true)
-  
+
   - 방명록 작성
-  ![Img](https://github.com/wooojini/relay_15/blob/master/img/mypage_4.PNG?raw=true)
-  ![Img](https://github.com/wooojini/relay_15/blob/master/img/mypage_5.PNG?raw=true)
-  
+    ![Img](https://github.com/wooojini/relay_15/blob/master/img/mypage_4.PNG?raw=true)
+    ![Img](https://github.com/wooojini/relay_15/blob/master/img/mypage_5.PNG?raw=true)
+
   - 필터링 과정
-  ![Img](https://github.com/wooojini/relay_15/blob/master/img/mypage_6.PNG?raw=true)
-  ![Img](https://github.com/wooojini/relay_15/blob/master/img/mypage_7.PNG?raw=true)
-  
+    ![Img](https://github.com/wooojini/relay_15/blob/master/img/mypage_6.PNG?raw=true)
+    ![Img](https://github.com/wooojini/relay_15/blob/master/img/mypage_7.PNG?raw=true)
+
   - 로그아웃
-  ![Img](https://github.com/wooojini/relay_15/blob/master/img/mypage_1.PNG?raw=true)
-  ![Img](https://github.com/wooojini/relay_15/blob/master/img/mypage_logout.PNG?raw=true)
+    ![Img](https://github.com/wooojini/relay_15/blob/master/img/mypage_1.PNG?raw=true)
+    ![Img](https://github.com/wooojini/relay_15/blob/master/img/mypage_logout.PNG?raw=true)
 
 - 회원가입 페이지
   ![Img](https://github.com/wooojini/relay_15/blob/master/img/signup_page.PNG?raw=true)
@@ -94,5 +94,52 @@
   | 이석재 | 김도연 |
 
 ## 3rd week
+
+### **3.2. 세 번째 주차 요구 사항**
+
+- 기존 서비스 기능미니 홈피 기능 중 게시판 게시물 작성, 조회, 수정 및 삭제게시판 게시물 콘텐츠에 이미지 업로드게시판 게시물 댓글
+- 인공지능 기술 서비스 ( 비전 / 영상 처리 )최종 목표게시판 게시물 콘텐츠에 업로드 되는 이미지를 활용하여 게시물 추천 서비스를 구현유저 시나리오특정 게시물에 이미지가 첨부되어있을 때, 해당 게시물 하단에 그와 유사한 게시물을 추천구현 방안 ( 택 1 )핀터레스트와 유사하게 게시판에 존재하는 모든 이미지들 간의 유사도를 측정하고, 이를 기반으로 추천 ( 유사도 측정 모델은 자유롭게 선택해서 적용 ) 사진이 업로드 될 때 마다, 이미지 태그 생성 선택 사항이미지 thumbnail 추출사용자가 입력한 이미지의 thumbnail 을 추출해서 게시판 이미지들의 미리보기 형식을 지원이미지 변환 기술을 사용해서 사용자가 등록한 이미지 썸네일을 추출하여 게시물 목록 및 게시물 추천 컨텐츠에 활용
+
+### 구현사항
+
+- 기존 서비스 기능 Frontend / Backend
+
+### 역할 배분
+
+- 프론트
+
+  조찬영, 임한동, 이소정, 전병재, 송진현, 구승효
+
+- 백 :
+
+  강동훈, 지화영, 김남진, 우승윤, 진영기, 류남광
+
+### DB API 문서
+
+[Week3-Relay15](https://docs.google.com/spreadsheets/d/15Ye5YN6SzAOdF8uzjuVc3KFLg3-Tn4WTtu22hIsSD9s/edit?usp=drive_web&ouid=100439240209536106378)
+
+### 실행 화면
+
+- 게시판 화면
+
+![1](https://user-images.githubusercontent.com/49899406/90241318-c5cf9400-de65-11ea-878e-61912639c10f.png)
+
+화면 우측 중간에 있는 게시판 탭을 클릭하면 다음과 같은 게시판 목록이 나온다.
+
+원래 상태로 표시하는 것이 아닌 리액트 라우터로 화면을 이동하려 했으나 라우터 에러로 인해 부득이하게 상태로 게시글 목록을 표시했음
+
+- 게시판 이미지 업로드
+
+![2](https://user-images.githubusercontent.com/49899406/90241323-c6682a80-de65-11ea-95b2-46cdb7c47646.png)
+
+'게시글 작성' 버튼을 누르면 제목과 사진을 선택할 수 있는 창 표시
+
+- 게시판 상세보기
+
+![3](https://user-images.githubusercontent.com/49899406/90241325-c7995780-de65-11ea-8b7a-d2514378bc4c.png)
+
+게시글의 이미지와 게시글 하단에는 게시글 이미지와 연관성이 있는 추천 게시글 목록을 표시
+
+![image](https://user-images.githubusercontent.com/49899406/90241574-4bebda80-de66-11ea-8e55-22a6b05274f7.png)
 
 ## 4th week
