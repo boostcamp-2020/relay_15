@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:5000';
+import { BASE_URL } from '../secret';
 
 export async function apiFetch({ url, method = 'GET', body }) {
   const response = await fetch(`${BASE_URL}${url}`, {
