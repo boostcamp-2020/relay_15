@@ -13,7 +13,7 @@ const upload = multer({
     },
   }),
 });
-const pythonReader = require('../imageProcessing/tagging');
+const tagging = require('../imageProcessing/tagging');
 
 /* 게시글 목록 */
 router.get('/', async (req, res, next) => {
@@ -36,10 +36,7 @@ router.post('/upload', async (req, res, next) => {
 });
 /* 이미지 저장 */
 router.post('/image', upload.single('img'), async (req, res, next) => {
-  const tagString = await pythonReader(
-    `https://lh3.googleusercontent.com/proxy/615jUz6xIr1Itt1Y1C8nJKxTu5Zse1Jp8STG1q8grjvSXO-RN_uAEaKVSDbjvB1PVMXwcqmHDi2QRNmQjQLGRMID0j2aMMXQ00I7pA8fj_v04mt41cRb1DagawZne4C03QQ`
-  );
-  /* `http://${getIPAddress()}/image/${req.file.}` */
+  const tagString = await tagging(`http://${getIPAddress()}/image/${req.file.filename}`);
   const tags = JSON.parse(tagString[0].replace(/\'/g, '"'));
   tags.forEach(async (tag) => {
     await dbHelper.saveTag(tag);
