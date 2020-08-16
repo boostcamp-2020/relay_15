@@ -35,27 +35,20 @@ router.post('/upload', async (req, res, next) => {
   res.json(result);
 });
 /* 이미지 저장 */
-router.post('/image', upload.single('img'), async (req, res, next) => {
-  const url = `http://${getIPAddress()}/image/${req.file.filename}`;
+router.post('/image', upload.single('image'), async (req, res, next) => {
+  const url = `http://61.97.188.233/image/${req.file.filename}`;
   const tagString = await tagging(url);
-  const tags = JSON.parse(tagString[0].replace(/\'/g, '"'));
-  tags.forEach(async (tag) => {
-    await dbHelper.saveTag(tag);
-  });
-
+  let tags = null;
+  try {
+    tags = JSON.parse(tagString[0].replace(/\'/g, '"'));
+    tags.forEach(async (tag) => {
+      await dbHelper.saveTag(tag);
+    });
+  } catch (err) {
+    res.json({ url: url, tags: null });
+    return null;
+  }
   res.json({ url: url, tags: tags });
 });
-// http://localhost::5000/image/abc.jpg
-function getIPAddress() {
-  var interfaces = require('os').networkInterfaces();
-  for (var devName in interfaces) {
-    var iface = interfaces[devName];
-    for (var i = 0; i < iface.length; i++) {
-      var alias = iface[i];
-      if (alias.family === 'IPv4' && alias.address !== '127.0.0.1' && !alias.internal) return alias.address;
-    }
-  }
-  return '0.0.0.0';
-}
 
 module.exports = router;
