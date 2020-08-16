@@ -1,24 +1,32 @@
 import React, { useEffect, useState, useCallback } from 'react';
+import axios from 'axios';
+
 import { DetailContainer } from './styles/PostDetail.style';
 import Post from './Post';
+import { useMemberState } from '../contexts/MemberContext';
+import { BASE_URL } from '../secret';
 
-import { apiFetch } from '../apis';
+function arrayFromObject(obj) {
+  const result = Object.keys(obj).map((key) => ({ id: key, title: obj[key] }));
+  return result;
+}
 
 const PostDetail = ({ id }) => {
-  const [title, setTitle] = useState('게시글 상세뷰');
-  const [img_url, setImg] = useState('https://source.unsplash.com/random/1');
-  const [recommend_arr, setRecommends] = useState([
-    { id: 1, title: '추천!' },
-    { id: 2, title: '선인장!' },
-  ]);
+  const {
+    myInfo: { email },
+  } = useMemberState();
+  const [title, setTitle] = useState('');
+  const [img, setImg] = useState('');
+  const [recommends, setRecommends] = useState([]);
+
   const fetchData = useCallback(async (id) => {
     try {
-      const response = await apiFetch({
-        url: `/post/${id}`,
-      });
-      //   setTitle();
-      //   setImg();
-      //   setRecommends();
+      const { data } = await axios.post(`${BASE_URL}/post/${id}`, { email });
+      if (data) {
+        setTitle(data.title);
+        setImg(data.image);
+        setRecommends(arrayFromObject(JSON.parse(data.recommend)));
+      }
     } catch (e) {
       console.error(e);
     }
@@ -34,9 +42,9 @@ const PostDetail = ({ id }) => {
         <h1>{title}</h1>
       </header>
       <div className="MainImgContainer">
-        <img className="MainImgContainer__item" src={img_url} alt="" />
+        <img className="MainImgContainer__item" src={img} alt="post_image" />
       </div>
-      {recommend_arr.map((v) => (
+      {recommends.map((v) => (
         <Post dummy_id={v.id} dummy_title={v.title} key={`recommend_list${v.id}`} />
       ))}
     </DetailContainer>
