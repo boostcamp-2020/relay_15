@@ -60,7 +60,7 @@ const TitleInput = styled.input`
   }
 `;
 
-const WritePostForm = ({ onClose }) => {
+const WritePostForm = ({ onClose, update }) => {
   const {
     myInfo: { email },
   } = useMemberState();
@@ -99,6 +99,7 @@ const WritePostForm = ({ onClose }) => {
         });
         if (data) {
           onClose();
+          update();
           return;
         }
         alert('게시글 작성에 실패했습니다.');
