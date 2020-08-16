@@ -1,18 +1,20 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import styled from 'styled-components';
+import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 import WritePostForm from './WritePostForm';
 import Post from './Post';
 import Button from '../common/Button';
+import { useMemberState } from '../contexts/MemberContext';
 
-const dummy = [
-  { id: 1, title: '안녕하세요' },
-  { id: 2, title: '반갑습니다' },
-  { id: 3, title: '잘있어요' },
-];
 
-const MainPostsSection = ({ onClickPost }) => {
+
+
+
+const MainPostsSection = ({ onClickPost })=> {
+  const { myInfo } = useMemberState();
+  const [postList, setPostList] = useState([])
   const [isVisibleWriteForm, setIsVisibleWriteForm] = useState(false);
 
   const onClickWritePostVisible = useCallback(() => {
@@ -24,6 +26,20 @@ const MainPostsSection = ({ onClickPost }) => {
     console.log('test');
   }, []);
 
+  useEffect(()=>{
+    (async () =>{
+      console.log(myInfo.email);
+      if(myInfo.email){
+        const response = await axios.post('http://61.97.188.233/post', { email:myInfo.email });
+        console.log(response);
+        console.log("데이터가 넘어갈까융"+response.data);
+        if(response.data){
+          setPostList(response.data);
+        }
+      }
+     })();
+  }, [])
+
   return (
     <>
       {isVisibleWriteForm && <WritePostForm onClose={onClickWritePostUnVisible} />}
@@ -32,7 +48,7 @@ const MainPostsSection = ({ onClickPost }) => {
           <Button onClick={onClickWritePostVisible} title="게시글 작성" />
         </div>
         <section>
-          {dummy.map((v) => (
+          {postList.map((v) => (
             <Post dummy_id={v.id} dummy_title={v.title} key={`post_list${v.id}`} onClick={() => onClickPost(v.id)} />
           ))}
         </section>
