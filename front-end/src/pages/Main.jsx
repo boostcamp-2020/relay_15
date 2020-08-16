@@ -64,7 +64,7 @@ function Main({ match }) {
             <p>설문조사 내용</p>
           </section>
           {isHome && <MainHomeSection mainInfo={mainInfo} myInfo={myInfo} dispatch={dispatch} />}
-          {isPostList && <MainPostsSection myInfo={myInfo} onClickPost={onClickPost} />}
+          {isPostList && <MainPostsSection myInfo={myInfo} mainInfo={mainInfo} onClickPost={onClickPost} />}
           {isPost !== false && <PostDetail id={isPost} />}
 
           <nav className="profile-buttons">
