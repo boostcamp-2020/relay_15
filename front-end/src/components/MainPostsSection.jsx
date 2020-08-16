@@ -1,20 +1,16 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 
 import WritePostForm from './WritePostForm';
 import Post from './Post';
 import Button from '../common/Button';
 import { useMemberState } from '../contexts/MemberContext';
+import { BASE_URL } from '../secret';
 
-
-
-
-
-const MainPostsSection = ({ onClickPost })=> {
+const MainPostsSection = ({ onClickPost }) => {
   const { myInfo } = useMemberState();
-  const [postList, setPostList] = useState([])
+  const [postList, setPostList] = useState([]);
   const [isVisibleWriteForm, setIsVisibleWriteForm] = useState(false);
 
   const onClickWritePostVisible = useCallback(() => {
@@ -23,30 +19,24 @@ const MainPostsSection = ({ onClickPost })=> {
 
   const onClickWritePostUnVisible = useCallback(() => {
     setIsVisibleWriteForm(false);
-    console.log('test');
   }, []);
 
-  useEffect(()=>{
-    (async () =>{
-      console.log(myInfo.email);
-      if(myInfo.email){
-        const response = await axios.post('http://61.97.188.233/post', { email:myInfo.email });
-        console.log(response);
-        console.log("데이터가 넘어갈까융"+response.data);
-        if(response.data){
+  useEffect(() => {
+    (async () => {
+      if (myInfo.email) {
+        const response = await axios.post(`${BASE_URL}/post`, { email: myInfo.email });
+        if (response.data) {
           setPostList(response.data);
         }
       }
-     })();
-  }, [])
+    })();
+  }, []);
 
   return (
     <>
       {isVisibleWriteForm && <WritePostForm onClose={onClickWritePostUnVisible} />}
       <MainPostsSectionWrapper>
-        <div>
-          <Button onClick={onClickWritePostVisible} title="게시글 작성" />
-        </div>
+        <div>{myInfo.email && <Button onClick={onClickWritePostVisible} title="게시글 작성" />}</div>
         <section>
           {postList.map((v) => (
             <Post dummy_id={v.id} dummy_title={v.title} key={`post_list${v.id}`} onClick={() => onClickPost(v.id)} />
@@ -76,11 +66,6 @@ const MainPostsSectionWrapper = styled.section`
       margin-bottom: 4px;
     }
   }
-`;
-
-const Input = styled.input`
-  background: blue;
-  font-size: 11px;
 `;
 
 export default MainPostsSection;
