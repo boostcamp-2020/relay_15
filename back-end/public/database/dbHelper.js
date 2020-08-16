@@ -23,8 +23,8 @@ const sql_update_post_views_plus_one = 'update post set views = views+1 where id
 
 const pool = mysql.createPool({
   host: 'localhost',
-  user: 'db_user',
-  password: 'pass',
+  user: '',
+  password: '',
   database: 'boostcamp',
   insecureAuth: true,
 });
