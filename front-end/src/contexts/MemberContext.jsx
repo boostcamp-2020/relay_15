@@ -1,7 +1,7 @@
 import React, { useReducer, useContext } from 'react';
 import { createContext } from 'react';
 
-const MemberContext = createContext(undefined);
+const MemberContext = createContext();
 const DispatchContext = createContext();
 
 function memberReducer(state, action) {
