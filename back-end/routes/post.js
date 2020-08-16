@@ -35,7 +35,7 @@ router.post('/upload', async (req, res, next) => {
   res.json(result);
 });
 /* 이미지 저장 */
-router.post('/image', upload.single('img'), async (req, res, next) => {
+router.post('/image', upload.single('image'), async (req, res, next) => {
   const url = `http://${getIPAddress()}/image/${req.file.filename}`;
   const tagString = await tagging(url);
   const tags = JSON.parse(tagString[0].replace(/\'/g, '"'));
