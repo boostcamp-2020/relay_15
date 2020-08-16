@@ -22,7 +22,7 @@ router.get('/', async (req, res, next) => {
 /* 게시글 내용 */
 router.get('/:id', async (req, res, next) => {
   dbHelper.updatePostViewsPlusOne(req.params.id);
-  res.json((await dbHelper.getPost(req.params.id, req.body.email))[0]);
+  res.json((await dbHelper.getPost(req.params.id, req.body.email))[0][0]);
 });
 /* 게시글 작성 */
 router.post('/upload', async (req, res, next) => {
