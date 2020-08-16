@@ -16,10 +16,7 @@ def generate_tag(image_url):
         # print(resp)
         resp.raise_for_status()
         result = resp.json()['result']
-        if len(result['label']) > 0:
-            print(result['label'])
-        else:
-            print("tag fail")
+        print(result['label'])
 
     except Exception as e:
         print(str(e))

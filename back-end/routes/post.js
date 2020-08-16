@@ -15,20 +15,12 @@ const upload = multer({
 });
 const tagging = require('../imageProcessing/tagging');
 
-/* 게시글 목록 */
-router.get('/', async (req, res, next) => {
-  res.json((await dbHelper.getAllPost(req.body.email))[0]);
-});
-/* 게시글 내용 */
-router.get('/:id', async (req, res, next) => {
-  dbHelper.updatePostViewsPlusOne(req.params.id);
-  res.json((await dbHelper.getPost(req.params.id, req.body.email))[0][0]);
-});
 /* 게시글 작성 */
 router.post('/upload', async (req, res, next) => {
   const result = await dbHelper.savePost(req.body.title, req.body.email, req.body.image);
+  const tags = req.body.tags;
   if (result) {
-    await dbHelper.savePostToTag(result[0].insertId, JSON.parse(req.body.tags));
+    if (tags.length) await dbHelper.savePostToTag(result[0].insertId, tags);
     res.json(true);
     return;
   }
@@ -37,18 +29,22 @@ router.post('/upload', async (req, res, next) => {
 /* 이미지 저장 */
 router.post('/image', upload.single('image'), async (req, res, next) => {
   const url = `http://61.97.188.233/image/${req.file.filename}`;
-  const tagString = await tagging(url);
   let tags = null;
-  try {
-    tags = JSON.parse(tagString[0].replace(/\'/g, '"'));
-    tags.forEach(async (tag) => {
-      await dbHelper.saveTag(tag);
-    });
-  } catch (err) {
-    res.json({ url: url, tags: null });
-    return null;
-  }
-  res.json({ url: url, tags: tags });
+  let tagIdList = null;
+  let promises = [];
+  const tagString = await tagging(url);
+  tags = JSON.parse(tagString[0].replace(/\'/g, '"'));
+  tags.forEach((tag) => promises.push(dbHelper.saveTag(tag)));
+  tagIdList = (await Promise.all(promises)).map((row) => row[0][0].id);
+  res.json({ url: url, tags: tagIdList });
 });
-
+/* 게시글 목록 */
+router.post('/', async (req, res, next) => {
+  res.json((await dbHelper.getAllPost(req.body.email))[0]);
+});
+/* 게시글 내용 */
+router.post('/:id', async (req, res, next) => {
+  dbHelper.updatePostViewsPlusOne(req.params.id);
+  res.json((await dbHelper.getPost(req.params.id, req.body.email))[0][0]);
+});
 module.exports = router;
