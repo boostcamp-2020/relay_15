@@ -2,6 +2,8 @@ import styled from 'styled-components';
 
 export const DetailContainer = styled.div`
   margin-bottom: 30px;
+  overflow: auto;
+
   .TitleContainer {
     display: flex;
     flex-direction: row;
