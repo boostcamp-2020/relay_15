@@ -1,5 +1,7 @@
 # relay_15
 
+배포 주소: http://101.101.211.23/
+
 ## 1st week
 
 - [라떼 챌린지 사전조사](https://github.com/boostcamp-2020/relay_15/blob/master/latte_challenge_pilot.md)
