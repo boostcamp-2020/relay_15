@@ -250,7 +250,7 @@ create table if not exists postTag(
 
 ```
 {
-    "id": 1,
+    "email": 1,
     "title": "테스트1",
     "image": "http://localhost:5000/image/test.jpg",
     "tags": [1,2,3]
