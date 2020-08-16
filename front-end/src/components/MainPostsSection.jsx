@@ -21,20 +21,22 @@ const MainPostsSection = ({ onClickPost }) => {
     setIsVisibleWriteForm(false);
   }, []);
 
-  useEffect(() => {
-    (async () => {
-      if (myInfo.email) {
-        const response = await axios.post(`${BASE_URL}/post`, { email: myInfo.email });
-        if (response.data) {
-          setPostList(response.data);
-        }
+  const updatePostList = useCallback(async () => {
+    if (myInfo.email) {
+      const response = await axios.post(`${BASE_URL}/post`, { email: myInfo.email });
+      if (response.data) {
+        setPostList(response.data);
       }
-    })();
+    }
+  }, []);
+
+  useEffect(() => {
+    updatePostList();
   }, []);
 
   return (
     <>
-      {isVisibleWriteForm && <WritePostForm onClose={onClickWritePostUnVisible} />}
+      {isVisibleWriteForm && <WritePostForm onClose={onClickWritePostUnVisible} update={updatePostList} />}
       <MainPostsSectionWrapper>
         <div>{myInfo.email && <Button onClick={onClickWritePostVisible} title="게시글 작성" />}</div>
         <section>
@@ -50,6 +52,7 @@ const MainPostsSection = ({ onClickPost }) => {
 const MainPostsSectionWrapper = styled.section`
   padding-top: 16px;
   width: 500px;
+  overflow: auto;
 
   & > div {
     display: flex;
