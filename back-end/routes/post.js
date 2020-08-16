@@ -36,13 +36,14 @@ router.post('/upload', async (req, res, next) => {
 });
 /* 이미지 저장 */
 router.post('/image', upload.single('img'), async (req, res, next) => {
-  const tagString = await tagging(`http://${getIPAddress()}/image/${req.file.filename}`);
+  const url = `http://${getIPAddress()}/image/${req.file.filename}`;
+  const tagString = await tagging(url);
   const tags = JSON.parse(tagString[0].replace(/\'/g, '"'));
   tags.forEach(async (tag) => {
     await dbHelper.saveTag(tag);
   });
 
-  res.json({ tags: tags });
+  res.json({ url: url, tags: tags });
 });
 // http://localhost::5000/image/abc.jpg
 function getIPAddress() {
