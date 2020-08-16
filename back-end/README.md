@@ -140,12 +140,48 @@
 
 # 3주차 Backend API
 
-## Backend APIs
+## 담당자
 
-### /post - 게시글 목록
+> week3 : 김남진, 지화영, 진영기, 우승윤, 강동훈, 류남광
+
+## Backend API
+
+- local 작업 시 링크 : http://localhost:5000
+
+> ### ERD
+>
+> ![image](https://user-images.githubusercontent.com/26570319/90324828-99735f00-dfae-11ea-9e7e-ab83224dcf2b.png)
+
+> ### 테이블 생성 sql
+
+```
+create table if not exists post (
+    id int auto_increment primary key,
+    title varchar(50) not null,
+    email varchar(50) not null,
+    image varchar(50) not null,
+	views int default 0 not null
+);
+create table if not exists tag (
+	id int auto_increment primary key,
+    name varchar(20) not null unique
+);
+create table if not exists postTag(
+	postId int not null,
+    tagId int not null,
+    foreign key(postId) references post(id),
+    foreign key(tagId) references tag(id)
+);
+```
+
+## /post - 게시글 목록
 
 > ### request
->
+
+#### 호출 방식 : GET
+
+#### data format : x-www-form-urlencoded
+
 > x-www-form-urlencoded
 
 ```
@@ -178,11 +214,13 @@
 ]
 ```
 
-#### /post/:id - 게시글 내용
+## /post/:id - 게시글 내용
 
 > ### request
->
-> x-www-form-urlencoded
+
+#### 호출 방식 : GET
+
+#### data format : x-www-form-urlencoded
 
 ```
 {
@@ -202,11 +240,13 @@
 }
 ```
 
-### /post/upload
+## /post/upload - 게시글 작성
 
 > ### request
->
-> x-www-form-urlencoded
+
+#### 호출 방식 : POST
+
+#### data format : x-www-form-urlencoded
 
 ```
 {
@@ -219,27 +259,25 @@
 
 > ### response
 
-### 성공 시
-
 ```
+// 성공 시
 {
   true
 }
-```
 
-### 실패 시
-
-```
+// 실패 시
 {
   false
 }
 ```
 
-### /post/image
+## /post/image - 이미지 저장
 
 > ### request
->
-> form-data
+
+#### 호출 방식 : POST
+
+#### data format : form-data
 
 ```
 이미지 파일을 form-data 에 담아 전송
@@ -254,7 +292,9 @@
 }
 ```
 
-### /image/:image
+## /image/:image - 이미지 요청
+
+#### 호출 방식 : GET
 
 > ### request
 
