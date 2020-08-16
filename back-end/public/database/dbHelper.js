@@ -12,7 +12,9 @@ left join (select p.id, p.title, p.views, pt.* from post p join postTag pt on p.
 on pt2.postId!=p.id && pt2.tagId in (select pt.tagId from post p join postTag pt on p.id=pt.postId where p.id=(?))
 where p.id=(?)`;
 const sql_select_all_post = `select id, title from post where email=(?) ORDER BY id desc`;
-const sql_insert_tag = 'insert into tag(name) values(?) on duplicate key update name=(?)';
+const sql_select_tag = `select id from tag where name=(?)`;
+const sql_insert_tag = `INSERT INTO tag (name)
+select (?) WHERE NOT EXISTS (SELECT name FROM tag WHERE name = (?))`;
 const sql_save_post_to_tag = (tags) =>
   `insert into postTag(postId, tagId) values ${tags.reduce((result, tag, index) => {
     result += `(?,?)`;
@@ -38,9 +40,12 @@ exports.savePost = async (title, email, image) => {
 };
 exports.getPost = async (postId) => await pool.query(sql_select_post, [postId, postId]);
 exports.getAllPost = async (email) => await pool.query(sql_select_all_post, [email]);
-exports.saveTag = async (name) => await pool.query(sql_insert_tag, [name, name]);
-exports.savePostToTag = async (postId, tags) =>
-  await pool.query(
+exports.saveTag = async (name) => {
+  await pool.query(sql_insert_tag, [name, name]);
+  return pool.query(sql_select_tag, [name]);
+};
+exports.savePostToTag = (postId, tags) => {
+  return pool.query(
     sql_save_post_to_tag(tags),
     tags.reduce((result, tagId) => {
       result.push(postId);
@@ -48,4 +53,6 @@ exports.savePostToTag = async (postId, tags) =>
       return result;
     }, [])
   );
+};
+
 exports.updatePostViewsPlusOne = async (postId) => await pool.query(sql_update_post_views_plus_one, [postId]);
