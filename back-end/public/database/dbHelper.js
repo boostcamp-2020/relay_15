@@ -1,3 +1,4 @@
+const dotenv = require('dotenv');
 const mysql = require('mysql2/promise');
 const sql_insert_post = 'insert into post(title, email, image) values(?, ?, ?)';
 const sql_select_post = `select p.id, p.title, p.image,
@@ -21,11 +22,13 @@ const sql_save_post_to_tag = (tags) =>
   }, '')}`;
 const sql_update_post_views_plus_one = 'update post set views = views+1 where id=(?)';
 
+dotenv.config();
+
 const pool = mysql.createPool({
-  host: 'localhost',
-  user: 'db_user',
-  password: 'boostcamp',
-  database: 'boostcamp',
+  host: process.env.DB_ENDPOINT,
+  user: process.env.DB_USERNAME,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
   insecureAuth: true,
 });
 
