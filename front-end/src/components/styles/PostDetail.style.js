@@ -21,3 +21,9 @@ export const DetailContainer = styled.div`
     }
   }
 `;
+
+export const TagListWrapper = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  margin: 10px 0;
+`;
