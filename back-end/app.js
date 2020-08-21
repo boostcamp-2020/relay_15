@@ -11,6 +11,7 @@ var signupRouter = require('./routes/signup');
 var guestbookRouter = require('./routes/guestbook');
 var postRouter = require('./routes/post');
 var callRouter = require('./routes/call');
+var recommandRouter = require('./routes/recommand');
 var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -30,6 +31,7 @@ app.use('/signup', signupRouter);
 app.use('/guestbook', guestbookRouter);
 app.use('/call', callRouter);
 app.use('/post', postRouter);
+app.use('/recommand', recommandRouter);
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));
