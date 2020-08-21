@@ -1,9 +1,10 @@
 import React, { useEffect, useCallback, useState } from 'react';
+
 import { useInput } from '../hooks';
 import { useHistory } from 'react-router-dom';
 import { apiFetch } from '../apis';
 import { SignUpStyle } from './styles/SignUp.style';
-
+import MyRating from '../components/MyRating';
 function SignUp() {
   const [email, onChangeEmail] = useInput('');
   const [password, onChangePassword] = useInput('');
@@ -11,6 +12,12 @@ function SignUp() {
   const [name, onChangeName] = useInput('');
   const [age, onChangeAge] = useInput('');
   const [location, onChangeLocation] = useInput('');
+
+  const [tendency, onChangeTendency] = useInput(3);
+  const [activityTime, onChangeActivityTime] = useInput(3);
+  const [food, onChangeFood] = useInput(3);
+  const [movie, onChangeMovie] = useInput(3);
+
   const [isCorrectPassword, setIsCorrectPassword] = useState(false);
 
   const history = useHistory();
@@ -27,24 +34,38 @@ function SignUp() {
         return;
       }
       try {
+        const params = makeParams();
+        console.log(params);
         await apiFetch({
           url: '/users',
           method: 'POST',
-          body: {
-            email,
-            password,
-            name,
-          },
+          body: params,
         });
 
         history.push('/');
       } catch (e) {
-        console.error(e.message);
+        // console.error(e.message);
         alert('예기치 못 한 에러가 발생했습니다.');
       }
     },
-    [email, password, name, isCorrectPassword, history]
+    [email, password, name, age, location, tendency, movie, food, activityTime, isCorrectPassword, history],
   );
+
+  const makeParams = () => {
+    return {
+      email: email,
+      password: password,
+      name: name,
+      age: parseInt(age.replace(/[^0-9]/g, '')),
+      location: location,
+      character: {
+        tendency: tendency,
+        movie: movie,
+        food: food,
+        activityTime: activityTime,
+      },
+    };
+  };
 
   useEffect(() => {
     password === passwordCheck ? setIsCorrectPassword(true) : setIsCorrectPassword(false);
@@ -91,6 +112,36 @@ function SignUp() {
                 <label htmlFor="location">사는 곳</label>
                 <input id="location" type="text" value={location} onChange={onChangeLocation} />
               </div>
+
+              <hr style={{ width: '500px' }} />
+              <MyRating
+                name={'tendency'}
+                left={'내향성'}
+                right={'외향성'}
+                value={tendency}
+                onChangeRating={onChangeTendency}
+              ></MyRating>
+              <MyRating
+                name={'activityTime'}
+                left={'아침형'}
+                right={'야행형'}
+                value={activityTime}
+                onChangeRating={onChangeActivityTime}
+              ></MyRating>
+              <MyRating
+                name={'food'}
+                left={'한식파'}
+                right={'양식파'}
+                value={food}
+                onChangeRating={onChangeFood}
+              ></MyRating>
+              <MyRating
+                name={'movie'}
+                left={'코미디'}
+                right={'스릴러'}
+                value={movie}
+                onChangeRating={onChangeMovie}
+              ></MyRating>
               <button type="submit" className="signup-button">
                 회원가입
               </button>

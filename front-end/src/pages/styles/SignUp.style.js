@@ -46,6 +46,10 @@ export const SignUpStyle = styled.div`
     font-size: 18px;
   }
 
+  .MuiRating-label {
+    width: 50px;
+  }
+
   .signup-form {
     display: flex;
     flex-direction: column;
