@@ -80,7 +80,20 @@ function Main({ match }) {
         <aside>
           <h2>{mainInfo.name}님의 일촌</h2>
           <ul className="friends-list">
-            {mainInfo.friends && mainInfo.friends.map((friend) => <Friend key={friend} friend={friend} />)}
+            {mainInfo.friends &&
+              mainInfo.friends
+                .filter((friend, index) => index < 5)
+                .map((friend) => <Friend key={friend} friend={friend} />)}
+          </ul>
+          <hr />
+          <div>
+            <h2>추천 일촌</h2>
+          </div>
+          <ul>
+            {mainInfo.friends &&
+              mainInfo.friends // <- 추천친구 목록으로 바꿔줘야함
+                .filter((friend, index) => index < 2)
+                .map((friend) => <Friend key={friend} friend={friend} />)}
           </ul>
         </aside>
       </section>
