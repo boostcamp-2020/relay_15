@@ -18,8 +18,9 @@ export const SignUpStyle = styled.div`
   .sign-up {
     padding: 50px 40px 50px 40px;
     background-color: white;
-    height: 450px;
     width: 500px;
+    height: fit-content;
+    margin-top: 100px;
     border-radius: 32px;
     box-shadow: 5px 5px 5px #345794;
     top: 40%;

@@ -9,6 +9,8 @@ function SignUp() {
   const [password, onChangePassword] = useInput('');
   const [passwordCheck, onChangePasswordCheck] = useInput('');
   const [name, onChangeName] = useInput('');
+  const [age, onChangeAge] = useInput('');
+  const [location, onChangeLocation] = useInput('');
   const [isCorrectPassword, setIsCorrectPassword] = useState(false);
 
   const history = useHistory();
@@ -16,7 +18,7 @@ function SignUp() {
   const onSubmit = useCallback(
     async (e) => {
       e.preventDefault();
-      if (!email.trim() || !password.trim() || !name.trim()) {
+      if (!email.trim() || !password.trim() || !name.trim() || !age.trim() || !location.trim()) {
         alert('필수 항목을 채워주세요');
         return;
       }
@@ -45,9 +47,7 @@ function SignUp() {
   );
 
   useEffect(() => {
-    password === passwordCheck
-      ? setIsCorrectPassword(true)
-      : setIsCorrectPassword(false);
+    password === passwordCheck ? setIsCorrectPassword(true) : setIsCorrectPassword(false);
   }, [password, passwordCheck]);
 
   return (
@@ -68,44 +68,28 @@ function SignUp() {
             <form className="signup-form" onSubmit={onSubmit}>
               <div>
                 <label htmlFor="email">이메일 아이디</label>
-                <input
-                  id="email"
-                  type="email"
-                  value={email}
-                  onChange={onChangeEmail}
-                />
+                <input id="email" type="email" value={email} onChange={onChangeEmail} />
               </div>
               <div>
                 <label htmlFor="password">비밀번호</label>
-                <input
-                  id="password"
-                  type="password"
-                  value={password}
-                  onChange={onChangePassword}
-                />
+                <input id="password" type="password" value={password} onChange={onChangePassword} />
               </div>
               <div>
                 <label htmlFor="password-check">비밀번호 확인</label>
-                <input
-                  id="password-check"
-                  type="password"
-                  value={passwordCheck}
-                  onChange={onChangePasswordCheck}
-                />
+                <input id="password-check" type="password" value={passwordCheck} onChange={onChangePasswordCheck} />
               </div>
-              {!isCorrectPassword && (
-                <div className="check-password">
-                  비밀번호와 확인이 일치하지 않습니다.
-                </div>
-              )}
+              {!isCorrectPassword && <div className="check-password">비밀번호와 확인이 일치하지 않습니다.</div>}
               <div>
                 <label htmlFor="name">이름</label>
-                <input
-                  id="name"
-                  type="text"
-                  value={name}
-                  onChange={onChangeName}
-                />
+                <input id="name" type="text" value={name} onChange={onChangeName} />
+              </div>
+              <div>
+                <label htmlFor="age">나이</label>
+                <input id="age" type="text" value={age} onChange={onChangeAge} />
+              </div>
+              <div>
+                <label htmlFor="location">사는 곳</label>
+                <input id="location" type="text" value={location} onChange={onChangeLocation} />
               </div>
               <button type="submit" className="signup-button">
                 회원가입
