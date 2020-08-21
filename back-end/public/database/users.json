@@ -10,7 +10,13 @@
                 "contanct@naver.com",
                 "theling@naver.com",
                 "hello@naver.com"
-            ]
+            ],
+            "character" : {
+                "취향" : 1,
+                "영화" : 2, 
+                "음식" : 3,
+                "활동시간" : 4
+            }
         },
         {
             "no": 2,
@@ -21,7 +27,13 @@
                 "sample1@naver.com",
                 "theling@naver.com",
                 "hello@naver.com"
-            ]
+            ],
+            "character" : {
+                "취향" : 3,
+                "영화" : 2, 
+                "음식" : 5,
+                "활동시간" : 1
+            }
         },
         {
             "no": 3,
@@ -32,7 +44,13 @@
                 "contanct@naver.com",
                 "sample1@naver.com",
                 "hello@naver.com"
-            ]
+            ],
+            "character" : {
+                "취향" : 5,
+                "영화" : 4, 
+                "음식" : 3,
+                "활동시간" : 5
+            }
         },
         {
             "no": 4,
@@ -43,7 +61,115 @@
                 "contanct@naver.com",
                 "theling@naver.com",
                 "sample1@naver.com"
-            ]
+            ],
+            "character" : {
+                "취향" : 2,
+                "영화" : 1, 
+                "음식" : 1,
+                "활동시간" : 5
+            }
+        },
+        {
+            "no": 5,
+            "email": "week@naver.com",
+            "password": "abc123",
+            "name": "사용자4",
+            "friends": [
+                "contanct@naver.com",
+                "theling@naver.com",
+                "sample1@naver.com"
+            ],
+            "character" : {
+                    "취향" : 5,
+                    "영화" : 2, 
+                    "음식" : 3,
+                    "활동시간" : 5
+            }
+        },
+        {
+            "no": 6,
+            "email": "week2@naver.com",
+            "password": "abc123",
+            "name": "사용자6",
+            "friends": [
+                "contanct@naver.com",
+                "theling@naver.com",
+                "sample1@naver.com"
+            ],
+            "character" : {
+                "취향" : 1,
+                "영화" : 4, 
+                "음식" : 3,
+                "활동시간" : 5
+            }
+        },
+        {
+            "no": 7,
+            "email": "boost123@naver.com",
+            "password": "abc123",
+            "name": "사용자7",
+            "friends": [
+                "contanct@naver.com",
+                "theling@naver.com",
+                "sample1@naver.com"
+            ],
+            "character" : {
+                "취향" : 1,
+                "영화" : 2, 
+                "음식" : 4,
+                "활동시간" : 5
+            }
+        },
+        {
+            "no": 8,
+            "email": "test8@naver.com",
+            "password": "abc123",
+            "name": "사용자8",
+            "friends": [
+                "contanct@naver.com",
+                "theling@naver.com",
+                "sample1@naver.com"
+            ],
+            "character" : {
+                "취향" : 1,
+                "영화" : 4, 
+                "음식" : 4,
+                "활동시간" : 5
+            }
+        },
+        {
+            "no": 9,
+            "email": "test9@naver.com",
+            "password": "abc123",
+            "name": "사용자9",
+            "friends": [
+                "contanct@naver.com",
+                "theling@naver.com",
+                "sample1@naver.com"
+            ],
+            "character" : {
+                "취향" : 2,
+                "영화" : 5, 
+                "음식" : 4,
+                "활동시간" : 5
+            }
+        },
+        {
+            "no": 10,
+            "email": "test10@naver.com",
+            "password": "abc123",
+            "name": "사용자10",
+            "friends": [
+                "contanct@naver.com",
+                "theling@naver.com",
+                "sample1@naver.com"
+            ],
+            "character" : {
+                "취향" : 5,
+                "영화" : 5, 
+                "음식" : 5,
+                "활동시간" : 5
+            }
         }
     ]
-}
+  }
