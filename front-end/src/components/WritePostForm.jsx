@@ -1,8 +1,11 @@
 import React, { useState, useRef, useCallback } from 'react';
 import styled from 'styled-components';
+import axios from 'axios';
 import Button from '../common/Button';
+import { useMemberState } from '../contexts/MemberContext';
 
-import { apiFetch } from '../apis';
+import { useInput } from '../hooks';
+import { BASE_URL } from '../secret';
 
 const ModalWrapper = styled.div`
   position: absolute;
@@ -43,6 +46,7 @@ const Picture = styled.img`
   margin-left: 0px;
   width: 380px;
   height: 380px;
+  opacity: ${({ visivle }) => (visivle ? '1' : '0')};
 `;
 
 const TitleInput = styled.input`
@@ -56,54 +60,64 @@ const TitleInput = styled.input`
   }
 `;
 
-const WritePostForm = ({ onClose }) => {
+const WritePostForm = ({ onClose, update }) => {
+  const {
+    myInfo: { email },
+  } = useMemberState();
   const uploadRef = useRef();
-  const [title, setTitle] = useState('');
-  const [img, setImg] = useState(
-    'https://images.unsplash.com/photo-1479255833741-74244986c3c7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80',
-  );
+  const [title, onChangeTitle] = useInput('');
+  const [image, setImage] = useState('');
+  const [tags, setTags] = useState(null);
 
-  const uploadData = useCallback(async (data) => {
-    try {
-      const response = await apiFetch({
-        url: `/post/image`,
-      });
-    } catch (e) {
-      console.error(e);
-    }
-  }, []);
-
-  const handleTitle = (e) => {
-    setTitle(e.target.value);
-  };
-
-  const onClickUpload = () => {
+  const onClickUpload = useCallback(() => {
     if (uploadRef.current) {
       uploadRef.current.click();
     }
-  };
+  }, []);
 
-  // const uploadPost = () => {};
-  const uploadImage = (e) => {
+  const uploadImage = useCallback(async (e) => {
+    e.preventDefault();
     const imageFormData = new FormData();
-    [].forEach.call(e.target.files, (f) => {
-      imageFormData.append('image', f);
-    });
-    // uploadData(data);
-    // fetch 후
-    // setImg(e.target.files[0]);
-  };
+    imageFormData.append('image', e.target.files[0]);
 
-  const uploadPost = (e) => {};
+    const { data } = await axios.post(`${BASE_URL}/post/image`, imageFormData);
+    if (data && data.url) {
+      setImage(data.url);
+      setTags(data.tags);
+    }
+  }, []);
+
+  const uploadPost = useCallback(
+    async (e) => {
+      e.preventDefault();
+      if (title.trim() && title.length < 50 && image && email) {
+        const { data } = await axios.post(`${BASE_URL}/post/upload`, {
+          email,
+          title,
+          image,
+          tags: tags || [],
+        });
+        if (data) {
+          onClose();
+          update();
+          return;
+        }
+        alert('게시글 작성에 실패했습니다.');
+        return;
+      }
+      alert('올바르지 않은 값입니다');
+    },
+    [title, image, email, tags],
+  );
 
   return (
     <ModalWrapper>
       <div className="close" onClick={onClose}>
         ❌
       </div>
-      <TitleInput placeholder="제목을 입력하세요 :)" value={title} onChange={handleTitle} />
-      <Picture src={img} alt="upload" />
-      <input type="file" onChange={uploadImage} ref={uploadRef} className="unvisible" />
+      <TitleInput placeholder="제목을 입력하세요 :)" value={title} onChange={onChangeTitle} />
+      <Picture src={image} alt="upload" visivle={image} />
+      <input type="file" hidden onChange={uploadImage} ref={uploadRef} />
       <ButtonWrapper>
         <Button title={'이미지 선택'} onClick={onClickUpload}></Button>
         <Button title={'게시글 작성'} onClick={uploadPost}></Button>

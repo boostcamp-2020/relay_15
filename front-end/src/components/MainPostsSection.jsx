@@ -1,18 +1,16 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 import WritePostForm from './WritePostForm';
 import Post from './Post';
 import Button from '../common/Button';
-
-const dummy = [
-  { id: 1, title: '안녕하세요' },
-  { id: 2, title: '반갑습니다' },
-  { id: 3, title: '잘있어요' },
-];
+import { useMemberState } from '../contexts/MemberContext';
+import { BASE_URL } from '../secret';
 
 const MainPostsSection = ({ onClickPost }) => {
+  const { myInfo } = useMemberState();
+  const [postList, setPostList] = useState([]);
   const [isVisibleWriteForm, setIsVisibleWriteForm] = useState(false);
 
   const onClickWritePostVisible = useCallback(() => {
@@ -21,18 +19,28 @@ const MainPostsSection = ({ onClickPost }) => {
 
   const onClickWritePostUnVisible = useCallback(() => {
     setIsVisibleWriteForm(false);
-    console.log('test');
+  }, []);
+
+  const updatePostList = useCallback(async () => {
+    if (myInfo.email) {
+      const response = await axios.post(`${BASE_URL}/post`, { email: myInfo.email });
+      if (response.data) {
+        setPostList(response.data);
+      }
+    }
+  }, []);
+
+  useEffect(() => {
+    updatePostList();
   }, []);
 
   return (
     <>
-      {isVisibleWriteForm && <WritePostForm onClose={onClickWritePostUnVisible} />}
+      {isVisibleWriteForm && <WritePostForm onClose={onClickWritePostUnVisible} update={updatePostList} />}
       <MainPostsSectionWrapper>
-        <div>
-          <Button onClick={onClickWritePostVisible} title="게시글 작성" />
-        </div>
+        <div>{myInfo.email && <Button onClick={onClickWritePostVisible} title="게시글 작성" />}</div>
         <section>
-          {dummy.map((v) => (
+          {postList.map((v) => (
             <Post dummy_id={v.id} dummy_title={v.title} key={`post_list${v.id}`} onClick={() => onClickPost(v.id)} />
           ))}
         </section>
@@ -44,6 +52,7 @@ const MainPostsSection = ({ onClickPost }) => {
 const MainPostsSectionWrapper = styled.section`
   padding-top: 16px;
   width: 500px;
+  overflow: auto;
 
   & > div {
     display: flex;
@@ -60,11 +69,6 @@ const MainPostsSectionWrapper = styled.section`
       margin-bottom: 4px;
     }
   }
-`;
-
-const Input = styled.input`
-  background: blue;
-  font-size: 11px;
 `;
 
 export default MainPostsSection;
